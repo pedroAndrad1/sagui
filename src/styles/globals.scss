@@ -1,0 +1,29 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background: var(--background);
+  color: var(--text-standard);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:root{
+  --background: rgba(255, 253, 253, 0.945);
+  --primary: #4dabf5; //dark #1769aa
+  --secondary: #29b6f6;// dark #1c7fac
+  --text-secondary: #6c757d;
+  --link: #e666fb; //dark #9c2caf 
+  
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+body, input, button, textarea{
+  font: 400 1rem 'Roboto', sans-serif;
+} 
