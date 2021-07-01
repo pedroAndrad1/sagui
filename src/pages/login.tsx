@@ -1,6 +1,7 @@
-import styles from '../styles/home.module.scss';
+import styles from '../styles/login.module.scss';
 import Divider from '../components/Divider';
-import { FormEvent } from 'react';
+import React, { FormEvent } from 'react';
+import LoginCadastroRecSenhaLayout from '../layouts/Login-Cadastro-Rec_Senha-Layout';
 
 export default function Login() {
 
@@ -9,14 +10,8 @@ export default function Login() {
   }
 
   return (
-    <div className={`${styles.wrapper}`}>
-      <aside>
-        <img src="/logo.svg" alt="Um sagui, logomarca" />
-        <div>
-          <p>SAGUI, ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidunt ut labore et dolore</p>
-        </div>
-      </aside>
-      <main>
+    <LoginCadastroRecSenhaLayout>
+      <main className={styles.login_wrapper}>
         <form onSubmit={handleSubmit}>
           <div className="form-floating mb-3">
             <input type="email" className="form-control" name='email' placeholder="name@example.com" />
@@ -32,6 +27,7 @@ export default function Login() {
         <Divider />
         <span>Não tem uma conta? <a href="#">Cadastre-se aqui.</a></span>
       </main>
-    </div>
+    </LoginCadastroRecSenhaLayout>
+
   )
 }

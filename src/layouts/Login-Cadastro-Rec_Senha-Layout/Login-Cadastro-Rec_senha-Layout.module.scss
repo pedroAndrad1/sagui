@@ -1,0 +1,32 @@
+.wrapper{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: .60fr 1fr;
+
+    aside{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        background: var(--primary);
+        padding: 2rem;
+
+        img{
+            margin-right: 5rem;
+        }
+
+        div{
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            align-self: flex-end;
+            height: 30%;
+            p{
+                text-align: center;
+            }
+        }
+
+    }
+}
+
