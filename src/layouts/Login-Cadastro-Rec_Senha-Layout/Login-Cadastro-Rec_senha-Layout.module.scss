@@ -26,7 +26,38 @@
                 text-align: center;
             }
         }
+    }
 
+    main{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        form{
+            width: 50%;
+            button{
+                background: var(--primary);
+
+                transition: filter .1s;
+
+                &:hover{
+                    filter: brightness(0.9)
+                }
+            }
+        }
+
+        span{
+            a{
+                color: var(--link);
+                text-decoration: underline;
+                transition: filter .1s;
+
+                &:hover{
+                    filter: brightness(0.7)
+                }
+            }
+        }
     }
 }
 

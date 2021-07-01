@@ -1,7 +1,8 @@
-import styles from '../styles/login.module.scss';
 import Divider from '../components/Divider';
 import React, { FormEvent } from 'react';
 import LoginCadastroRecSenhaLayout from '../layouts/Login-Cadastro-Rec_Senha-Layout';
+import Link from 'next/link';
+
 
 export default function Login() {
 
@@ -11,7 +12,7 @@ export default function Login() {
 
   return (
     <LoginCadastroRecSenhaLayout>
-      <main className={styles.login_wrapper}>
+      <main>
         <form onSubmit={handleSubmit}>
           <div className="form-floating mb-3">
             <input type="email" className="form-control" name='email' placeholder="name@example.com" />
@@ -23,9 +24,9 @@ export default function Login() {
           </div>
           <button type="submit" className={`btn mt-4`}>Login</button>
         </form>
-        <span className='mt-4'>Esqueceu a senha? <a href="#">Clique aqui.</a></span>
+        <span className='mt-4'>Esqueceu a senha? <Link href="/recuperar-senha">Clique aqui.</Link></span>
         <Divider />
-        <span>Não tem uma conta? <a href="#">Cadastre-se aqui.</a></span>
+        <span>Não tem uma conta? <Link href='cadastro'>Cadastre-se aqui.</Link></span>
       </main>
     </LoginCadastroRecSenhaLayout>
 
