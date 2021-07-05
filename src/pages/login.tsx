@@ -1,5 +1,5 @@
 import GoogleLogin from 'react-google-login';
-import styles from '../styles/Login.module.scss';
+import styles from '../styles/login.module.scss';
 import Divider from '../components/Divider';
 import React, { FormEvent } from 'react';
 import LoginCadastroRecSenhaLayout from '../layouts/Login-Cadastro-Rec_Senha-Layout';
