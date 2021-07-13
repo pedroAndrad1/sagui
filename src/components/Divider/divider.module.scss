@@ -1,6 +1,11 @@
-.divider{
+.divider_horizontal{
     width: 50%;
     height: 1px;
     background: linear-gradient(to left, #ffffff , var(--primary) 50%, #ffffff);
     margin: 1rem 0;
+}
+.divider_vertical{
+    height: 50%;
+    width: 1px;
+    background: linear-gradient(var(--primary), #ffffff 50%, var(--primary));
 }
