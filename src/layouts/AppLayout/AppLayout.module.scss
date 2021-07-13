@@ -22,7 +22,7 @@
                 margin-right: 2rem;
             }
        }
-
+       
        nav{
            width: 50%;
            height: 50%;
@@ -49,6 +49,10 @@
 
     main{
         flex: 1;
+
+        h1{
+            align-self: flex-start;
+        }
     }
 
     footer{

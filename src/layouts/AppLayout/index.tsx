@@ -1,4 +1,5 @@
 import React from 'react';
+import Container from '../../components/Container';
 import Divider from '../../components/Divider';
 import styles from './AppLayout.module.scss';
 
@@ -25,7 +26,11 @@ export default function AppLayout({ children }) {
                    </ul>
                 </nav>
             </header>
-            <main>{children}</main>
+            <main>
+            <Container>
+            {children}
+            </Container>
+            </main>
             <footer>
                 <p>Informações</p>
             </footer>

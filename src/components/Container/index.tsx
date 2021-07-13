@@ -1,8 +1,8 @@
-import { ReactNode } from "react";
+import styles from './container.module.scss';
 
 export default function Container({children}){
     return (
-        <div className="container">
+        <div className={`${styles.wrapper}`}>
             {children}
         </div>
     )
