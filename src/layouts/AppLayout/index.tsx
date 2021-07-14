@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import Container from '../../components/Container';
 import Divider from '../../components/Divider';
@@ -14,11 +15,13 @@ export default function AppLayout({ children }) {
                 </div>
                 <nav>
                    <ul>
-                       <li>Home</li>
-                       <Divider direction='vertical'/>
-                       <li>Admin</li>
+                       <Link href='/'><li>Home</li></Link>
                        <Divider direction='vertical'/>
                        <li>Upload de históricos</li>
+                       <Divider direction='vertical'/>
+                       <li>Jubilamento</li>
+                       <Divider direction='vertical'/>
+                       <li>Admin</li>
                        <Divider direction='vertical'/>
                        <li>Sobre</li>
                        <Divider direction='vertical'/>
@@ -26,7 +29,7 @@ export default function AppLayout({ children }) {
                    </ul>
                 </nav>
             </header>
-            <main>
+            <main className="animeLeft">
             <Container>
             {children}
             </Container>
