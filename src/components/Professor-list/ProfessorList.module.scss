@@ -7,17 +7,34 @@
     overflow-y: auto;
 
   div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    cursor: pointer;
+        
+    .profile_demo{
+
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: space-between;
         align-items: center;
-        justify-content: center;
+        width: 50%;
+
         li{
             width: 100%;
             text-align: center;
             color: var(--text-block);
             font-size: 1rem;
-            cursor: pointer;
         }
+
+        img{
+            border-radius: 100px;
+        }
+    }
+
+
    }
 
 }
