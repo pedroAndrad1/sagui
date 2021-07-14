@@ -39,6 +39,11 @@ export default function Home() {
     }
   }
 
+  //Filtra a lista de professores (tutores) de acordo com o campo de busca
+  const filtro = () =>{
+   return professores.filter(professor => updateList(professor) )
+  }
+
   return (
     <AppLayout>
       <h1>Professores tutores</h1>
@@ -48,9 +53,14 @@ export default function Home() {
         />
       </div>
       <section className={styles.wrapper}>
-        <ProfessorList professores= {
-          professores.filter(professor => updateList(professor) )
-        }/>
+        <ProfessorList professores= {filtro()}/>
+        {
+          filtro().length == 0 && 
+          <figure className={styles.sem_tutores}>
+            <img src="/sad-smile.svg" alt="Smile triste" />
+            <span>Não há um tutor com esse nome...</span>
+          </figure>
+        }
       </section>
     </AppLayout>
   )
