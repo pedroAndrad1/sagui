@@ -1,7 +1,7 @@
 import styles from './divider.module.scss';
 
 type DividerProps = {
-    direction: 'horizontal' | 'vertical';
+    direction?: 'horizontal' | 'vertical';
 }
 
 export default function Divider({direction = 'horizontal'}: DividerProps){
