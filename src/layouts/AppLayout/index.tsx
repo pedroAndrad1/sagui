@@ -11,7 +11,6 @@ export default function AppLayout({ children }) {
             <header>
                 <div className={styles.logo}>
                     <img src="/logo.svg" alt="Sagui logomarca" />
-                    <p>SAGUI</p>
                 </div>
                 <nav>
                    <ul>

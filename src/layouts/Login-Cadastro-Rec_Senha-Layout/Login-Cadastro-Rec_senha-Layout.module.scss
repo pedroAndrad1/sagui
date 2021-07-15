@@ -1,9 +1,9 @@
 .wrapper{
     height: 100vh;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: .7fr .3fr;
 
-    header{
+    aside{
         display: flex;
         justify-content: center;
         align-items: center;
@@ -13,9 +13,13 @@
         padding: 1rem;
 
         img{
-            height: 100px;
-            width: 100px;
+            height: 500px;
+            width: 500px;
             margin-right: 2rem;
+        }
+
+        h1{
+            font-weight: 700;
         }
     }
 
@@ -37,6 +41,8 @@
             button{
                 background: var(--primary);
                 transition: filter .1s;
+                box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+
                 &:hover{
                     filter: brightness(0.9)
                 }
@@ -56,7 +62,7 @@
         }
     }
 
-    footer{
+    /* footer{
         display: flex;
         justify-content: center;
         align-items: center;
@@ -64,6 +70,6 @@
         padding: 1rem;
         
         background: var(--primary);
-    }
+    } */
 }
 

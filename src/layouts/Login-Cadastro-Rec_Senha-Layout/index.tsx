@@ -4,14 +4,11 @@ export default function LoginCadastroRecSenhaLayout({ children }) {
 
     return (
         <div className={`${styles.wrapper}`}>
-            <header>
+            <aside>
                 <img src="/logo.svg" alt="Sagui logomarca" />
-                <p>SAGUI</p>
-            </header>
+                <h1>SAGUI</h1>
+            </aside>
             {children}
-            <footer>
-                <p>Informações</p>
-            </footer>
         </div>
     )
 }
