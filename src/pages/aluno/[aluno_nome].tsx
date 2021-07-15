@@ -21,7 +21,7 @@ export default function AlunoProfile() {
                         Confirmação de matrícula
                     </Tab> 
                     <Tab eventKey="plan_integralizacao" title="Planos de integralização">
-                        Confirmação de matrícula
+                        Plano de integralização
                     </Tab> 
                 </Tabs>
             </div>
