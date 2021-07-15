@@ -1,0 +1,29 @@
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+
+    .fluxograma{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        img{
+            height: 400px;
+            width: 400px;
+        }
+    }
+
+    .disciplinas{
+        width: 100%;
+        margin-top: 1rem;
+        table{
+            width: 100%;
+        }
+    }
+}

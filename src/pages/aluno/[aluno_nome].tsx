@@ -3,6 +3,7 @@ import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
 import styles from '../../styles/aluno.module.scss';
 import PerfilAluno from "../../layouts/PerfilAluno";
+import DisciplinasAluno from "../../layouts/DisciplinasAluno";
 
 export default function AlunoProfile() {
 
@@ -15,7 +16,7 @@ export default function AlunoProfile() {
                         <PerfilAluno />
                     </Tab>
                     <Tab eventKey="disciplinas" title="Disciplinas">
-                        Disciplinas
+                        <DisciplinasAluno />
                     </Tab>
                     <Tab eventKey="conf_matricula" title="Confirmação de matrícula">
                         Confirmação de matrícula

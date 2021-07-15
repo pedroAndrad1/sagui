@@ -10,7 +10,7 @@ export default function ProfessorList({ professores }) {
             {
                 professores.map((professorNome, i) => {
                     return (
-                        <div key={`${i}_${professorNome}2`}>
+                        <div key={`${i}_${professorNome}`}>
                             <Link href='/aluno/teste'>
                                 <div className={styles.profile_demo}>
                                     <Image
