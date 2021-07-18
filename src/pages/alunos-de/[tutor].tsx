@@ -16,25 +16,25 @@ export default function ListaDeALunosDeTutor() {
     }
 
 
-    const professoresData: ItemList[] = [
-        { nome: 'Genérico 1', link: '/aluno/nome-do-aluno' },
-        { nome: 'Genérico 2', link: '/aluno/nome-do-aluno' },
-        { nome: 'aluno', link: '/aluno/nome-do-aluno' },
-        { nome: 'aluno', link: '/aluno/nome-do-aluno' },
-        { nome: 'aluno', link: '/aluno/nome-do-aluno' },
-        { nome: 'aluno', link: '/aluno/nome-do-aluno' },
-        { nome: 'aluno', link: '/aluno/nome-do-aluno' },
-        { nome: 'aluno', link: '/aluno/nome-do-aluno' },
-        { nome: 'aluno', link: '/aluno/nome-do-aluno' },
-        { nome: 'aluno', link: '/aluno/nome-do-aluno' },
-        { nome: 'aluno', link: '/aluno/nome-do-aluno' },
-        { nome: 'aluno', link: '/aluno/nome-do-aluno' },
-        { nome: 'aluno', link: '/aluno/nome-do-aluno' },
-        { nome: 'aluno', link: '/aluno/nome-do-aluno' },
-        { nome: 'aluno', link: '/aluno/nome-do-aluno' },
+    const alunosData: ItemList[] = [
+        { nome: 'Genérico 1', link: '/aluno/Genérico 1' },
+        { nome: 'Genérico 2', link: '/aluno/Genérico 2' },
+        { nome: 'aluno', link: '/aluno/aluno' },
+        { nome: 'aluno', link: '/aluno/aluno' },
+        { nome: 'aluno', link: '/aluno/aluno' },
+        { nome: 'aluno', link: '/aluno/aluno' },
+        { nome: 'aluno', link: '/aluno/aluno' },
+        { nome: 'aluno', link: '/aluno/aluno' },
+        { nome: 'aluno', link: '/aluno/aluno' },
+        { nome: 'aluno', link: '/aluno/aluno' },
+        { nome: 'aluno', link: '/aluno/aluno' },
+        { nome: 'aluno', link: '/aluno/aluno' },
+        { nome: 'aluno', link: '/aluno/aluno' },
+        { nome: 'aluno', link: '/aluno/aluno' },
+        { nome: 'aluno', link: '/aluno/aluno' },
     ]
     const [alunoBuscado, setAlunoBuscado] = useState('');
-    const [alunos, setAluno] = useState<ItemList[]>(professoresData);
+    const [alunos, setAluno] = useState<ItemList[]>(alunosData);
 
     //Auxiliar do filtro.
     const updateList = (aluno: ItemList) => {

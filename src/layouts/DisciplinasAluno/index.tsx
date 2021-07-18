@@ -11,6 +11,7 @@ export default function DisciplinasAluno() {
             </div>
             <Divider />
             <div className={styles.disciplinas}>
+                <h2>Disciplinas cursadas</h2>
                 <Table />
             </div>
         </section>

@@ -43,6 +43,10 @@ body, input, button, textarea{
   color: var(--text-black)
 } 
 
+h2{
+  color: var(--title);
+}
+
 @keyframes animeLeft{
   to{
       opacity: 1;

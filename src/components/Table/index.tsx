@@ -1,22 +1,21 @@
+import styles from './Table.module.scss';
+
 export default function Table(){
     
-    const heade = ['Código', 'Nome', 'Status'];
+    const head = ['Código', 'Nome', 'Status'];
     const body = [
-        {codigo: 'TINXXXX', nome: 'Nome disciplina', status: 'Status'},
-        {codigo: 'TINXXXX', nome: 'Nome disciplina', status: 'Status'},
-        {codigo: 'TINXXXX', nome: 'Nome disciplina', status: 'Status'},
-        {codigo: 'TINXXXX', nome: 'Nome disciplina', status: 'Status'},
-        {codigo: 'TINXXXX', nome: 'Nome disciplina', status: 'Status'},
-        {codigo: 'TINXXXX', nome: 'Nome disciplina', status: 'Status'},
+        {codigo: 'TINXXXX', nome: 'Nome disciplina', status: 'Cursando'},
+        {codigo: 'TINXXXX', nome: 'Nome disciplina', status: 'Reprovado'},
+        {codigo: 'TINXXXX', nome: 'Nome disciplina', status: 'Aprovado'},
     ]
     
     
     return(
-        <table>
+        <table className={styles.wrapper}>
             <thead>
                 <tr>
                 {
-                    heade.map( (headElement, i) => 
+                    head.map( (headElement, i) => 
                      <th key={`${headElement}_${i}`}>{headElement}</th> 
                     )    
                 }
@@ -29,7 +28,22 @@ export default function Table(){
                         <tr key={`${bodyElement}_${i}`}>
                             <td>{bodyElement.codigo}</td>
                             <td>{bodyElement.nome}</td>
-                            <td>{bodyElement.status}</td>
+                            {/**Isso seria mais simples com styled-components, eu sei..
+                             * My bad.
+                             */}
+                            {
+                                bodyElement.status == 'Cursando' &&
+                                    <td className={styles.cursando}>{bodyElement.status}</td>
+                            }
+                            {
+                                bodyElement.status == 'Aprovado' &&
+                                    <td className={styles.aprovado}>{bodyElement.status}</td>
+                            }
+                            {
+                                bodyElement.status == 'Reprovado' &&
+                                    <td className={styles.reprovado}>{bodyElement.status}</td>
+                            }
+                            
                         </tr>
                     )
                 })
