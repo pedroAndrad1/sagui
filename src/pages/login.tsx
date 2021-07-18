@@ -1,20 +1,24 @@
 import GoogleLogin from 'react-google-login';
 import styles from '../styles/login.module.scss';
-import Divider from '../components/Divider';
 import React, { FormEvent } from 'react';
 import LoginCadastroRecSenhaLayout from '../layouts/Login-Cadastro-Rec_Senha-Layout';
-import Link from 'next/link';
+import { useRouter } from 'next/dist/client/router';
 
 export default function Login() {
+
+  const router = useRouter();
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
   }
 
-  const responseGoogle0 = (res) =>{
+  const success = (res) =>{
     console.log('logei', res);
+    router.push('/');
+
+    
   }
-  const responseGoogle1 = (res) =>{
+  const failure = (res) =>{
     console.log('não logei', res)
   }
 
@@ -25,8 +29,8 @@ export default function Login() {
           <GoogleLogin
             clientId="332505955238-s8of22iii1hn0ibmvjdcpfvl5pl6qq8d.apps.googleusercontent.com"
             buttonText="Login com o uniriotec"
-            onSuccess={responseGoogle0}
-            onFailure={responseGoogle1}
+            onSuccess={success}
+            onFailure={failure}
             cookiePolicy={'single_host_origin'}
             hostedDomain={'uniriotec.br'}
             render={renderProps => (

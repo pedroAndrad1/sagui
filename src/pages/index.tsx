@@ -1,40 +1,44 @@
 import { ChangeEvent } from 'react';
 import { useState } from 'react';
 import Input from '../components/Input';
-import ProfessorList from '../components/Professor-list';
+import List from '../components/List';
 import AppLayout from '../layouts/AppLayout';
 import styles from '../styles/home.module.scss';
 
 export default function Home() {
 
+  interface ItemList{
+    nome: string;
+    link: string;
+}
 
 
-  const professoresOriginal = [
-    'professorrr1',
-    'professorrr2',
-    'professor',
-    'professor',
-    'professor',
-    'professor',
-    'professor',
-    'professor',
-    'professor',
-    'professor',
-    'professor',
-    'professor',
-    'professor',
-    'professor',
-    'professor',
+  const professoresData: ItemList[] = [
+    {nome: 'Genérico 1', link: '/alunos-de/tutor-teste'},
+    {nome: 'Genérico 2', link: '/alunos-de/tutor-teste'},
+    {nome: 'professor', link: '/alunos-de/tutor-teste'},
+    {nome: 'professor', link: '/alunos-de/tutor-teste'},
+    {nome: 'professor', link: '/alunos-de/tutor-teste'},
+    {nome: 'professor', link: '/alunos-de/tutor-teste'},
+    {nome: 'professor', link: '/alunos-de/tutor-teste'},
+    {nome: 'professor', link: '/alunos-de/tutor-teste'},
+    {nome: 'professor', link: '/alunos-de/tutor-teste'},
+    {nome: 'professor', link: '/alunos-de/tutor-teste'},
+    {nome: 'professor', link: '/alunos-de/tutor-teste'},
+    {nome: 'professor', link: '/alunos-de/tutor-teste'},
+    {nome: 'professor', link: '/alunos-de/tutor-teste'},
+    {nome: 'professor', link: '/alunos-de/tutor-teste'},
+    {nome: 'professor', link: '/alunos-de/tutor-teste'},
   ]
   const [professorBuscado, setProfessorBuscado] = useState('');
-  const [professores, setProfessores] = useState(professoresOriginal);
+  const [professores, setProfessores] = useState<ItemList[]>(professoresData);
 
   //Auxiliar do filtro.
-  const updateList = (professor: String) => {
+  const updateList = (professor: ItemList) => {
     if(professorBuscado == ''){
       return professor
     }
-    else if(professor.toLowerCase().includes(professorBuscado.toLowerCase())){
+    else if(professor.nome.toLowerCase().includes(professorBuscado.toLowerCase())){
       return professor
     }
   }
@@ -53,7 +57,7 @@ export default function Home() {
         />
       </div>
       <section className={styles.wrapper}>
-        <ProfessorList professores= {filtro()}/>
+        <List itens = {filtro()}/>
         {
           filtro().length == 0 && 
           <figure className={styles.sem_tutores}>

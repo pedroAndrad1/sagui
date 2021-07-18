@@ -1,17 +1,27 @@
 import Divider from '../Divider';
-import styles from './ProfessorList.module.scss';
+import styles from './List.module.scss';
 import Image from 'next/image'
 import Link from 'next/link';
 
-export default function ProfessorList({ professores }) {
+interface Item{
+    nome: string;
+    link: string;
+}
+
+interface ItemList{
+    itens: Item[];
+}
+
+
+export default function List( {itens}: ItemList) {
 
     return (
         <ul className={styles.wrapper}>
             {
-                professores.map((professorNome, i) => {
+                itens.map((element, i) => {
                     return (
-                        <div key={`${i}_${professorNome}`}>
-                            <Link href='/aluno/teste'>
+                        <div key={`${i}_${element}`}>
+                            <Link href= {element.link}>
                                 <div className={styles.profile_demo}>
                                     <Image
                                         width={200}
@@ -19,7 +29,7 @@ export default function ProfessorList({ professores }) {
                                         alt='Foto do perfil'
                                         src='/no_image.gif'
                                     />
-                                    <li>{professorNome}</li>
+                                    <li>{element.nome}</li>
                                 </div>
                             </Link>
                             <Divider />
