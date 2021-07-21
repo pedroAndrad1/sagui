@@ -14,21 +14,21 @@ export default function Home() {
 
 
   const professoresData: ItemList[] = [
-    {nome: 'Genérico 1', link: '/alunos-de/tutor-teste'},
-    {nome: 'Genérico 2', link: '/alunos-de/tutor-teste'},
-    {nome: 'professor', link: '/alunos-de/tutor-teste'},
-    {nome: 'professor', link: '/alunos-de/tutor-teste'},
-    {nome: 'professor', link: '/alunos-de/tutor-teste'},
-    {nome: 'professor', link: '/alunos-de/tutor-teste'},
-    {nome: 'professor', link: '/alunos-de/tutor-teste'},
-    {nome: 'professor', link: '/alunos-de/tutor-teste'},
-    {nome: 'professor', link: '/alunos-de/tutor-teste'},
-    {nome: 'professor', link: '/alunos-de/tutor-teste'},
-    {nome: 'professor', link: '/alunos-de/tutor-teste'},
-    {nome: 'professor', link: '/alunos-de/tutor-teste'},
-    {nome: 'professor', link: '/alunos-de/tutor-teste'},
-    {nome: 'professor', link: '/alunos-de/tutor-teste'},
-    {nome: 'professor', link: '/alunos-de/tutor-teste'},
+    {nome: 'Genérico 1', link: '/alunos-de/Genérico 1'},
+    {nome: 'Genérico 2', link: '/alunos-de/Genérico 2'},
+    {nome: 'professor', link: '/alunos-de/professor'},
+    {nome: 'professor', link: '/alunos-de/professor'},
+    {nome: 'professor', link: '/alunos-de/professor'},
+    {nome: 'professor', link: '/alunos-de/professor'},
+    {nome: 'professor', link: '/alunos-de/professor'},
+    {nome: 'professor', link: '/alunos-de/professor'},
+    {nome: 'professor', link: '/alunos-de/professor'},
+    {nome: 'professor', link: '/alunos-de/professor'},
+    {nome: 'professor', link: '/alunos-de/professor'},
+    {nome: 'professor', link: '/alunos-de/professor'},
+    {nome: 'professor', link: '/alunos-de/professor'},
+    {nome: 'professor', link: '/alunos-de/professor'},
+    {nome: 'professor', link: '/alunos-de/professor'},
   ]
   const [professorBuscado, setProfessorBuscado] = useState('');
   const [professores, setProfessores] = useState<ItemList[]>(professoresData);

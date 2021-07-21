@@ -4,7 +4,7 @@ import styles from './DisciplinasAluno.module.scss';
 
 export default function DisciplinasAluno() {
     return (
-        <section className={styles.wrapper}>
+        <section className={`${styles.wrapper}`}>
             <div className={styles.fluxograma}>
                 <img src="/on-work.svg" alt="Em construção" />
                 <span>Futuro Fluxograma aqui</span>
