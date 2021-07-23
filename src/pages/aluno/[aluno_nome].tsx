@@ -4,6 +4,7 @@ import PerfilAluno from "../../layouts/PerfilAluno";
 import DisciplinasAluno from "../../layouts/DisciplinasAluno";
 import { useRouter } from "next/dist/client/router";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import ConfirmacaoMatricula from "../../layouts/ConfirmacaoMatricula";
 
 export default function AlunoProfile() {
 
@@ -30,7 +31,7 @@ export default function AlunoProfile() {
                         <DisciplinasAluno />
                     </TabPanel>
                     <TabPanel>
-                        Confirmação de matrícula
+                       <ConfirmacaoMatricula />
                     </TabPanel>
                     <TabPanel>
                         Planos de integralização

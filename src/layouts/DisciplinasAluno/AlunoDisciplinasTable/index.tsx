@@ -1,6 +1,6 @@
 import styles from './Table.module.scss';
 
-export default function Table(){
+export default function AlunoDisciplinasTable(){
     
     const head = ['Código', 'Nome', 'Status'];
     const body = [

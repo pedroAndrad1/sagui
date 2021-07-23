@@ -1,5 +1,5 @@
 import Divider from '../../components/Divider';
-import Table from '../../components/Table';
+import AlunoDisciplinasTable from './AlunoDisciplinasTable';
 import styles from './DisciplinasAluno.module.scss';
 
 export default function DisciplinasAluno() {
@@ -12,7 +12,7 @@ export default function DisciplinasAluno() {
             <Divider />
             <div className={styles.disciplinas}>
                 <h2>Disciplinas cursadas</h2>
-                <Table />
+                <AlunoDisciplinasTable />
             </div>
         </section>
     )
