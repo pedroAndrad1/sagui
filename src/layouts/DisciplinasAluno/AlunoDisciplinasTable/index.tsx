@@ -11,7 +11,7 @@ export default function AlunoDisciplinasTable(){
     
     
     return(
-        <table className={styles.wrapper}>
+        <table className={styles.wrapper} cellSpacing={0}>
             <thead>
                 <tr>
                 {
