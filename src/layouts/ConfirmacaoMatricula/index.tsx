@@ -140,18 +140,30 @@ export default function ConfirmacaoMatricula() {
                                         //fazendo um looping nas row cells
                                         row.cells.map((cell, i) => {
                                             if (cell.column.id === 'detalhes') {
-                                                console.log(cell.value)
+                                                return (
+                                                    //Aplicando as props de cell
+                                                    <td
+                                                        key={`${i}_body_cell`}
+                                                        {...cell.getCellProps()}
+                                                    >
+                                                        {/* Renderizando a cell */}
+                                                        <i className="bi bi-search"></i>
+                                                    </td>
+                                                )
                                             }
-                                            return (
-                                                //Aplicando as props de cell
-                                                <td
-                                                    key={`${i}_body_cell`}
-                                                    {...cell.getCellProps()}
-                                                >
-                                                    {/* Renderizando a cell */}
-                                                    {cell.render('Cell')}
-                                                </td>
-                                            )
+                                            else{
+                                                return (
+                                                    //Aplicando as props de cell
+                                                    <td
+                                                        key={`${i}_body_cell`}
+                                                        {...cell.getCellProps()}
+                                                    >
+                                                        {/* Renderizando a cell */}
+
+                                                        {cell.render('Cell')}
+                                                    </td>
+                                                )
+                                            }
                                         })
                                     }
                                 </tr>
