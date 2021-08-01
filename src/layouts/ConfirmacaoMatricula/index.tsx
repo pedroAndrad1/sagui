@@ -2,8 +2,8 @@ import React, { useMemo, useState } from "react";
 import { useTable, useGlobalFilter, usePagination } from 'react-table';
 import Input from "../../components/Input";
 import RightArrow from '../../components/Arrows/RightArrow';
-import styles from './ConfirmacaoMatricula.module.scss';
 import LeftArrow from "../../components/Arrows/LeftArrow";
+import styles from './ConfirmacaoMatricula.module.scss';
 
 export default function ConfirmacaoMatricula() {
     // Ignore o erro no typeScript, essa lib react-bable tem problemas com ele
