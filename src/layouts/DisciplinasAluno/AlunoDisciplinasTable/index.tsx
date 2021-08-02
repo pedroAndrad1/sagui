@@ -178,7 +178,7 @@ export default function AlunoDisciplinasTable() {
                 </tbody>
             </table>
             <div className={styles.pagination}>
-                <select value={pageSize} onChange={e => setPageSize(Number(e.target.value))}>
+                <select value={pageSize} onChange={e => setPageSize(Number(e.target.value))} >
                     {
                         [5, 10, 15].map(pageSize =>
                             <option key={pageSize} value={pageSize}>
@@ -193,43 +193,6 @@ export default function AlunoDisciplinasTable() {
                 <LeftArrow onClick={() => previousPage()} disabled={!canPreviousPage}/>
                 <RightArrow onClick={() => nextPage()} disabled={!canNextPage}/>
             </div>
-            {/* <table cellSpacing={0}>
-                <thead>
-                    <tr>
-                        {
-                            head.map((headElement, i) =>
-                                <th key={`${headElement}_${i}`}>{headElement}</th>
-                            )
-                        }
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        body.map((bodyElement, i) => {
-                            return (
-                                <tr key={`${bodyElement}_${i}`}>
-                                    <td>{bodyElement.codigo}</td>
-                                    <td>{bodyElement.nome}</td>
-                                    {
-                                        bodyElement.status == 'Cursando' &&
-                                        <td className={styles.cursando}>{bodyElement.status}</td>
-                                    }
-                                    {
-                                        bodyElement.status == 'Aprovado' &&
-                                        <td className={styles.aprovado}>{bodyElement.status}</td>
-                                    }
-                                    {
-                                        bodyElement.status == 'Reprovado' &&
-                                        <td className={styles.reprovado}>{bodyElement.status}</td>
-                                    }
-
-                                </tr>
-                            )
-                        })
-                    }
-                </tbody>
-            </table>
-        */}
         </>
     )
     /**Isso seria mais simples com styled-components, eu sei..
