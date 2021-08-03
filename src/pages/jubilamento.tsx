@@ -91,11 +91,9 @@ export default function Jubilamento() {
         <AppLayout>
             <h1>Alunos em situação de jubilamento</h1>
             <section className={styles.wrapper}>
-                <div className='filter'>
-                    <Input name='filtro' value={globalFilter} onChange={e => setGlobalFilter(e.target.value)}
-                        placeholder='Filtre por qualquer uma das colunas'
-                    />
-                </div>
+                <Input name='filtro' value={globalFilter} onChange={e => setGlobalFilter(e.target.value)}
+                    placeholder='Filtre por qualquer uma das colunas'
+                />
                 <table {...getTableProps()} cellSpacing={0} >
                     <thead>
                         {/* Fazendo um looping para as linhas de header */}

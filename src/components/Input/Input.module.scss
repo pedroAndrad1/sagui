@@ -1,12 +1,14 @@
-.wrapper{
-    height: 50px;
-    border-radius: .5rem;
-    padding: 0 1rem;
-    background: var(--input);
-    border: 1px solid var(--primary);
-    width: 50%;
-
-    input{
-        margin-left: 1rem;
+.wrapper {
+    margin-bottom: 1rem;
+    
+    input {
+        height: 50px;
+        border-radius: 0.5rem;
+        padding: 0 1rem;
+        background: var(--input);
+        border: 1px solid var(--primary);
+        width: 50%;
+        margin-left: 0.5rem;
+        width: 50%;
     }
 }

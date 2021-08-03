@@ -73,13 +73,9 @@ export default function AlunoDisciplinasTable() {
 
     return (
         <>
-            <div>
-                <div className='filter'>
-                    <Input name='filtro' value={globalFilter} onChange={e => setGlobalFilter(e.target.value)}
-                        placeholder='Filtre por qualquer uma das colunas'
-                    />
-                </div>
-            </div>
+            <Input name='filtro' value={globalFilter} onChange={e => setGlobalFilter(e.target.value)}
+                placeholder='Filtre por qualquer uma das colunas'
+            />
             {/* Aplicando as props */}
             <table {...getTableProps()} cellSpacing={0} >
                 <thead>

@@ -97,11 +97,9 @@ export default function ConfirmacaoMatricula() {
 
     return (
         <section className={styles.wrapper} >
-            <div className='filter'>
-                <Input name='filtro' value={globalFilter} onChange={e => setGlobalFilter(e.target.value)}
-                    placeholder='Filtre por qualquer uma das colunas'
-                />
-            </div>
+            <Input name='filtro' value={globalFilter} onChange={e => setGlobalFilter(e.target.value)}
+                placeholder='Filtre por qualquer uma das colunas'
+            />
             {/* Aplicando as props */}
             <table {...getTableProps()} cellSpacing={0} >
                 <thead>
@@ -151,7 +149,7 @@ export default function ConfirmacaoMatricula() {
                                                     </td>
                                                 )
                                             }
-                                            else{
+                                            else {
                                                 return (
                                                     //Aplicando as props de cell
                                                     <td
@@ -185,8 +183,8 @@ export default function ConfirmacaoMatricula() {
                 <span>
                     {`Página ${pageIndex + 1} de ${pageOptions.length}`}
                 </span>
-                <LeftArrow onClick={() => previousPage()} disabled={!canPreviousPage}/>
-                <RightArrow onClick={() => nextPage()} disabled={!canNextPage}/>
+                <LeftArrow onClick={() => previousPage()} disabled={!canPreviousPage} />
+                <RightArrow onClick={() => nextPage()} disabled={!canNextPage} />
             </div>
         </section>
 
