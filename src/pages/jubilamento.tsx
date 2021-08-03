@@ -39,7 +39,7 @@ export default function Jubilamento() {
     const columns = useMemo(
         () => [
             {
-                Header: 'Código',
+                Header: 'Mátricula',
                 accessor: 'matricula' //chave da info para a coluna
             },
             {
@@ -47,7 +47,7 @@ export default function Jubilamento() {
                 accessor: 'nome' //chave da info para a coluna
             },
             {
-                Header: 'Situacao',
+                Header: 'Situação',
                 accessor: 'situacao' //chave da info para a coluna
             },
             {
