@@ -8,31 +8,31 @@ import LeftArrow from "../../components/Arrows/LeftArrow";
 export default function PlanosDeIntegralizacao() {
 
     const data = useMemo(() => [
-        { 
+        {
             data_de_envio: '31-07-201', usuario_responsavel: 'usuario@uniriotec.br',
-            plano: 'Teste', link_download: 'link' 
+            plano: 'Teste', link_download: 'link'
         },
-        { 
+        {
             data_de_envio: '31-07-201', usuario_responsavel: 'usuario@uniriotec.br',
-            plano: 'Teste', link_download: 'link' 
+            plano: 'Teste', link_download: 'link'
         },
-        { 
+        {
             data_de_envio: '31-07-201', usuario_responsavel: 'usuario@uniriotec.br',
-            plano: 'Teste', link_download: 'link' 
+            plano: 'Teste', link_download: 'link'
         },
-        { 
+        {
             data_de_envio: '31-07-201', usuario_responsavel: 'roberto@uniriotec.br',
-            plano: 'Teste', link_download: 'link' 
+            plano: 'Teste', link_download: 'link'
         },
-        { 
+        {
             data_de_envio: '31-07-201', usuario_responsavel: 'luiz.roberto@uniriotec.br',
-            plano: 'Teste', link_download: 'link' 
+            plano: 'Teste', link_download: 'link'
         },
-        { 
+        {
             data_de_envio: '31-07-201', usuario_responsavel: 'usuario@uniriotec.br',
-            plano: 'Teste', link_download: 'link' 
+            plano: 'Teste', link_download: 'link'
         },
-        
+
     ], [])
 
     const columns = useMemo(
@@ -88,9 +88,11 @@ export default function PlanosDeIntegralizacao() {
 
     return (
         <section className={styles.wrapper}>
-            <Input name='filtro' value={globalFilter} onChange={e => setGlobalFilter(e.target.value)}
-                placeholder='Filtre por qualquer uma das colunas'
-            />
+            <div className='filter'>
+                <Input name='filtro' value={globalFilter} onChange={e => setGlobalFilter(e.target.value)}
+                    placeholder='Filtre por qualquer uma das colunas'
+                />
+            </div>
             {/* Aplicando as props */}
             <table {...getTableProps()} cellSpacing={0} >
                 <thead>
@@ -158,7 +160,7 @@ export default function PlanosDeIntegralizacao() {
                     }
                 </tbody>
             </table>
-            <div className={styles.pagination}>
+            <div className='pagination'>
                 <select value={pageSize} onChange={e => setPageSize(Number(e.target.value))} >
                     {
                         [5, 10, 15].map(pageSize =>

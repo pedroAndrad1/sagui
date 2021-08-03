@@ -97,7 +97,7 @@ export default function ConfirmacaoMatricula() {
 
     return (
         <section className={styles.wrapper} >
-            <div className={styles.filtro}>
+            <div className='filter'>
                 <Input name='filtro' value={globalFilter} onChange={e => setGlobalFilter(e.target.value)}
                     placeholder='Filtre por qualquer uma das colunas'
                 />
@@ -172,7 +172,7 @@ export default function ConfirmacaoMatricula() {
                     }
                 </tbody>
             </table>
-            <div className={styles.pagination}>
+            <div className='pagination'>
                 <select value={pageSize} onChange={e => setPageSize(Number(e.target.value))}>
                     {
                         [5, 10, 15].map(pageSize =>
