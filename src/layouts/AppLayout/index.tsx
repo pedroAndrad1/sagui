@@ -59,7 +59,7 @@ export default function AppLayout({ children }) {
                             <Divider direction='vertical' />
                             <li onClick={() => openModal()}>Carga de históricos</li>
                             <Divider direction='vertical' />
-                            <li>Jubilamento</li>
+                            <Link href='/jubilamento'><li>Jubilamento</li></Link>
                             <Divider direction='vertical' />
                             <li>Admin</li>
                             <Divider direction='vertical' />
