@@ -119,41 +119,43 @@ export default function AlunoDisciplinasTable() {
                                         row.cells.map((cell, i) => {
 
                                             if (cell.column.id === 'status') {
-                                                console.log(cell.value)
+                                                /**Isso seria mais simples com styled-components,
+                                                 * eu sei... My bad.
+                                                 */
                                                 switch (cell.value) {
                                                     case 'Cursando':
                                                         //Aplicando as props de cell
-                                                        return(
+                                                        return (
                                                             <td
-                                                            key={`${i}_body_cell`}
-                                                            {...cell.getCellProps()}
-                                                            className={styles.cursando}
-                                                        >
-                                                            {/* Renderizando a cell */}
-                                                            {cell.render('Cell')}
-                                                        </td>
+                                                                key={`${i}_body_cell`}
+                                                                {...cell.getCellProps()}
+                                                                className={styles.cursando}
+                                                            >
+                                                                {/* Renderizando a cell */}
+                                                                {cell.render('Cell')}
+                                                            </td>
                                                         )
                                                     case 'Aprovado':
-                                                        return(
+                                                        return (
                                                             <td
-                                                            key={`${i}_body_cell`}
-                                                            {...cell.getCellProps()}
-                                                            className={styles.aprovado}
-                                                        >
-                                                            {/* Renderizando a cell */}
-                                                            {cell.render('Cell')}
-                                                        </td>
+                                                                key={`${i}_body_cell`}
+                                                                {...cell.getCellProps()}
+                                                                className={styles.aprovado}
+                                                            >
+                                                                {/* Renderizando a cell */}
+                                                                {cell.render('Cell')}
+                                                            </td>
                                                         )
                                                     case 'Reprovado':
-                                                        return(
+                                                        return (
                                                             <td
-                                                            key={`${i}_body_cell`}
-                                                            {...cell.getCellProps()}
-                                                            className={styles.reprovado}
-                                                        >
-                                                            {/* Renderizando a cell */}
-                                                            {cell.render('Cell')}
-                                                        </td>
+                                                                key={`${i}_body_cell`}
+                                                                {...cell.getCellProps()}
+                                                                className={styles.reprovado}
+                                                            >
+                                                                {/* Renderizando a cell */}
+                                                                {cell.render('Cell')}
+                                                            </td>
                                                         )
                                                 }
                                             }
@@ -190,12 +192,9 @@ export default function AlunoDisciplinasTable() {
                 <span>
                     {`Página ${pageIndex + 1} de ${pageOptions.length}`}
                 </span>
-                <LeftArrow onClick={() => previousPage()} disabled={!canPreviousPage}/>
-                <RightArrow onClick={() => nextPage()} disabled={!canNextPage}/>
+                <LeftArrow onClick={() => previousPage()} disabled={!canPreviousPage} />
+                <RightArrow onClick={() => nextPage()} disabled={!canNextPage} />
             </div>
         </>
     )
-    /**Isso seria mais simples com styled-components, eu sei..
-    * My bad.
-    */
 }

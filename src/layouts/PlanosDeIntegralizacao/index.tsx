@@ -128,7 +128,6 @@ export default function PlanosDeIntegralizacao() {
                                     {
                                         //fazendo um looping nas row cells
                                         row.cells.map((cell, i) => {
-                                            console.log(cell.column.id)
                                             if (cell.column.id === 'link_download') {
                                                 return (
                                                     <td

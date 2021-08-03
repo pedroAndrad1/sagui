@@ -6,7 +6,6 @@ export default function PerfilAluno(){
             <ul>
                 <li>
                     <img src="/no_image.gif" alt="Foto de perfil" />
-                    <span> Colocar as infos em 3 colunas a direita da foto?</span>
                 </li>
                 <li>
                     <p>Matrícula</p>
