@@ -1,8 +1,8 @@
-import Link from 'next/link';
 import React, { useState } from 'react';
 import Container from '../../components/Container';
 import Divider from '../../components/Divider';
 import Modal from '../../components/Modal';
+import Navbar from '../../components/Navbar';
 import styles from './AppLayout.module.scss';
 
 
@@ -49,26 +49,7 @@ export default function AppLayout({ children }) {
                 </Modal>
             }
             <div className={styles.wrapper}>
-                <header>
-                    <div className={styles.logo}>
-                        <img src="/logo.svg" alt="Sagui logomarca" />
-                    </div>
-                    <nav>
-                        <ul>
-                            <Link href='/'><li>Home</li></Link>
-                            <Divider direction='vertical' />
-                            <li onClick={() => openModal()}>Carga de históricos</li>
-                            <Divider direction='vertical' />
-                            <Link href='/jubilamento'><li>Jubilamento</li></Link>
-                            <Divider direction='vertical' />
-                            <li>Admin</li>
-                            <Divider direction='vertical' />
-                            <li>Sobre</li>
-                            <Divider direction='vertical' />
-                            <li>Logout</li>
-                        </ul>
-                    </nav>
-                </header>
+                <Navbar openCargaHistoricosModal={openModal}/>
                 <main className="animeLeft">
                     <Container>
                         {children}
