@@ -1,5 +1,6 @@
 .wrapper {
     margin-bottom: 1rem;
+    width: 100%;
     
     input {
         height: 50px;
@@ -9,6 +10,5 @@
         border: 1px solid var(--primary);
         width: 50%;
         margin-left: 0.5rem;
-        width: 50%;
     }
 }
