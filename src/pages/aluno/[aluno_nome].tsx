@@ -21,8 +21,8 @@ export default function AlunoProfile() {
                         <TabList>
                             <Tab>Resumo</Tab>
                             <Tab>Disciplinas</Tab>
-                            <Tab>Confirmação de matrícula</Tab>
-                            <Tab>Planos de integralização</Tab>
+                            <Tab>Confirmação de Matrícula</Tab>
+                            <Tab>Planos de Integralização</Tab>
                         </TabList>
                     </nav>
                     <TabPanel>
