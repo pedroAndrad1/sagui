@@ -69,12 +69,8 @@ table{
       text-align: left;
   }
 
-  tbody{
-      tr{
-         td:nth-child(2){
-              color: var(--text-black);
-         }
-      }
+  tbody{   
+    color: var(--text-black);
   }
 
   i{
