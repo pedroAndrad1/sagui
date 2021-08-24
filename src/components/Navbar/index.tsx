@@ -17,11 +17,11 @@ export default function Navbar( {openCargaHistoricosModal}:NavbarProps ){
                         <ul>
                             <Link href='/'><li>Home</li></Link>
                             <Divider direction='vertical' />
-                            <li onClick={() => openCargaHistoricosModal()}>Carga de históricos</li>
+                            <li onClick={() => openCargaHistoricosModal()}>Carga de Históricos</li>
                             <Divider direction='vertical' />
                             <Link href='/jubilamento'><li>Jubilamento</li></Link>
                             <Divider direction='vertical' />
-                            <Link href='/situacao-de-atencao'><li>Situação de atenção</li></Link>
+                            <Link href='/situacao-de-atencao'><li>Situações de Atenção</li></Link>
                             <Divider direction='vertical' />
                             <Link href='/admin'><li>Admin</li></Link>
                             <Divider direction='vertical' />
