@@ -6,9 +6,10 @@
     flex-direction: column;
     justify-content: center;
 
-    section + section {
-        margin-top: 17rem;
-    }
+    //Tem isso tudo para não cortar o fluxograma na impressão
+    // section + section {
+    //     margin-top: 18rem;
+    // }
 
     section{
         box-shadow: none;
