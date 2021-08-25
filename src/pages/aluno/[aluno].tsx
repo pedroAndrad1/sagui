@@ -6,15 +6,24 @@ import { useRouter } from "next/dist/client/router";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import ConfirmacaoMatricula from "../../layouts/ConfirmacaoMatricula";
 import PlanosDeIntegralizacao from "../../layouts/PlanosDeIntegralizacao";
+import Link from "next/link";
 
 export default function AlunoProfile() {
 
     const router = useRouter();
-    const { aluno_nome } = router.query;
+    const { aluno } = router.query;
 
     return (
         <AppLayout>
-            <h1>{aluno_nome}</h1>
+            <div className={styles.title}>
+                <h1>{aluno}</h1>
+                <a target="_blank" href={`/imprimir/${aluno}`} rel="noopener noreferrer">
+                        <button>
+                            <i className="bi bi-printer-fill"></i>
+                            Imprimir
+                        </button>
+                </a>
+            </div>
             <div className={styles.wrapper}>
                 <Tabs>
                     <nav>
@@ -32,7 +41,7 @@ export default function AlunoProfile() {
                         <DisciplinasAluno />
                     </TabPanel>
                     <TabPanel>
-                       <ConfirmacaoMatricula />
+                        <ConfirmacaoMatricula />
                     </TabPanel>
                     <TabPanel>
                         <PlanosDeIntegralizacao />

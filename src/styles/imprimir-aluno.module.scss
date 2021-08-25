@@ -1,0 +1,50 @@
+.wrapper {
+    width: 100%;
+    padding: 3rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    section + section {
+        margin-top: 17rem;
+    }
+
+    section{
+        box-shadow: none;
+    }
+
+    .disciplinas_wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        padding: 2rem;
+
+        .fluxograma {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                height: 400px;
+                width: 400px;
+            }
+        }
+
+        .disciplinas {
+            width: 100%;
+            margin-top: 1rem;
+
+            h2 {
+                margin: 1rem 0;
+            }
+
+            table {
+                width: 100%;
+            }
+        }
+    }
+}

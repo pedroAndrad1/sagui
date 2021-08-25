@@ -35,7 +35,7 @@ export default function SituacaoDeAtencao() {
                         isSearchable={true}
                         isClearable={true}
                         autoFocus={true}
-                        placeholder='Escolha um situação'
+                        placeholder='Escolha uma situação'
                         noOptionsMessage={parametroPedidoSemUso => 'Não há opções com esse nome'}
                     ></Select>
                 </nav>
