@@ -50,7 +50,7 @@ export default function Home() {
 
   return (
     <AppLayout>
-      <h1>Professores tutores</h1>
+      <h1>Professores Tutores</h1>
       <div className={styles.buscar}>
         <Input name='buscar' placeholder='Digite o nome de um tutor' type='text'
           value={professorBuscado} onChange={e => setProfessorBuscado(e.target.value)} 

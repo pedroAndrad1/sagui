@@ -21,7 +21,7 @@ export default function Navbar( {openCargaHistoricosModal}:NavbarProps ){
                             <Divider direction='vertical' />
                             <Link href='/jubilamento'><li>Jubilamento</li></Link>
                             <Divider direction='vertical' />
-                            <Link href='/situacao-de-atencao'><li>Situações de Atenção</li></Link>
+                            <Link href='/situacoes-de-atencao'><li>Situações de Atenção</li></Link>
                             <Divider direction='vertical' />
                             <Link href='/admin'><li>Admin</li></Link>
                             <Divider direction='vertical' />
