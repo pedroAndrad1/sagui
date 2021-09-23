@@ -35,7 +35,7 @@ export default function Login() {
             cookiePolicy={'single_host_origin'}
             hostedDomain={'uniriotec.br'}
             render={renderProps => (
-              <button className={styles.signInGoogle} onClick={renderProps.onClick} disabled={renderProps.disabled}>
+              <button className= "signInGoogle" onClick={renderProps.onClick} disabled={renderProps.disabled}>
                  <img src='/google-icon.svg' alt="Logo da Google" />
                 Login com uniriotec
               </button>
