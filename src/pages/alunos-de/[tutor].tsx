@@ -1,13 +1,20 @@
 import { useRouter } from "next/dist/client/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Input from "../../components/Input";
 import List from "../../components/List";
+import { useUserContext } from "../../contexts/UserContext";
 import AppLayout from "../../layouts/AppLayout";
 import styles from '../../styles/home.module.scss';
 
 export default function ListaDeALunosDeTutor() {
 
     const router = useRouter();
+    const {logado} = useUserContext();
+   
+    useEffect(() =>{
+      if(!logado) router.push("/login");
+    }, [router, logado]);
+    
     const {tutor} = router.query;
 
     interface ItemList {

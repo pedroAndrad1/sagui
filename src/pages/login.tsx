@@ -3,20 +3,21 @@ import styles from '../styles/login.module.scss';
 import React, { FormEvent } from 'react';
 import LoginCadastroRecSenhaLayout from '../layouts/Login-Cadastro-Rec_Senha-Layout';
 import { useRouter } from 'next/dist/client/router';
+import { useUserContext } from '../contexts/UserContext';
 
 export default function Login() {
 
   const router = useRouter();
+  const {login} = useUserContext();
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
   }
 
   const success = (res) =>{
+    login();
     console.log('logei', res);
-    router.push('/');
-
-    
+    router.push('/');    
   }
   const failure = (res) =>{
     console.log('não logei', res)

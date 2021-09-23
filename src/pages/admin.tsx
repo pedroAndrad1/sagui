@@ -1,12 +1,21 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import AppLayout from '../layouts/AppLayout';
 import RightArrow from '../components/Arrows/RightArrow';
 import LeftArrow from "../components/Arrows/LeftArrow";
 import Input from "../components/Input";
 import styles from '../styles/admin.module.scss';
 import { useTable, useGlobalFilter, usePagination } from 'react-table';
+import { useRouter } from 'next/dist/client/router';
+import { useUserContext } from '../contexts/UserContext';
 
 export default function Admin() {
+
+    const router = useRouter();
+    const {logado} = useUserContext();
+   
+    useEffect(() =>{
+      if(!logado) router.push("/login");
+    }, [router, logado]);
 
     const data = useMemo(() => [
         {

@@ -1,12 +1,15 @@
 import styles from './Navbar.module.scss';
 import Link from 'next/link';
 import Divider from '../Divider';
+import { useUserContext } from '../../contexts/UserContext';
 
 interface NavbarProps{
     openCargaHistoricosModal: () => void;
 }
 
 export default function Navbar( {openCargaHistoricosModal}:NavbarProps ){
+
+    const {logout} = useUserContext();
 
     return(
         <header className={styles.wrapper}>
@@ -27,7 +30,7 @@ export default function Navbar( {openCargaHistoricosModal}:NavbarProps ){
                             <Divider direction='vertical' />
                             <li>Sobre</li>
                             <Divider direction='vertical' />
-                            <li>Logout</li>
+                            <li onClick={() => logout()}>Logout</li>
                         </ul>
                     </nav>
                 </header>

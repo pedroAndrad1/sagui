@@ -1,16 +1,25 @@
-import { ChangeEvent } from 'react';
+import { useRouter } from 'next/dist/client/router';
+import { ChangeEvent, useEffect } from 'react';
 import { useState } from 'react';
 import Input from '../components/Input';
 import List from '../components/List';
+import { useUserContext } from '../contexts/UserContext';
 import AppLayout from '../layouts/AppLayout';
 import styles from '../styles/home.module.scss';
 
 export default function Home() {
 
+  const router = useRouter();
+  const {logado} = useUserContext();
+ 
+  useEffect(() =>{
+    if(!logado) router.push("/login");
+  }, [router, logado]);
+
   interface ItemList{
     nome: string;
     link: string;
-}
+  }
 
 
   const professoresData: ItemList[] = [

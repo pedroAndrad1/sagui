@@ -1,8 +1,10 @@
 import AppLayout from '../layouts/AppLayout';
 import styles from '../styles/situacoes-de-atencao.module.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Select from 'react-select'
 import AlunosTable from '../components/EspecificTables/alunos';
+import { useRouter } from 'next/dist/client/router';
+import { useUserContext } from '../contexts/UserContext';
 
 const situacoes_data = [
     {
@@ -20,6 +22,13 @@ const situacoes_data = [
 ]
 
 export default function SituacaoDeAtencao() {
+
+    const router = useRouter();
+    const {logado} = useUserContext();
+   
+    useEffect(() =>{
+      if(!logado) router.push("/login");
+    }, [router, logado]);
 
     const [situacoes, setSituacaoes] = useState(situacoes_data);
     const [situacao, setSituacao] = useState('');

@@ -1,12 +1,21 @@
 import Input from "../components/Input";
 import AppLayout from "../layouts/AppLayout";
 import styles from '../styles/jubilamento.module.scss';
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import { useTable, useGlobalFilter, usePagination } from 'react-table';
 import RightArrow from '../components/Arrows/RightArrow';
 import LeftArrow from "../components/Arrows/LeftArrow";
+import { useRouter } from "next/dist/client/router";
+import { useUserContext } from "../contexts/UserContext";
 
 export default function Jubilamento() {
+
+    const router = useRouter();
+    const {logado} = useUserContext();
+   
+    useEffect(() =>{
+      if(!logado) router.push("/login");
+    }, [router, logado]);
 
     const data = useMemo(() => [
         {
