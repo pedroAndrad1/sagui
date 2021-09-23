@@ -1,5 +1,4 @@
 import GoogleLogin from 'react-google-login';
-import styles from '../styles/login.module.scss';
 import React, { FormEvent } from 'react';
 import LoginCadastroRecSenhaLayout from '../layouts/Login-Cadastro-Rec_Senha-Layout';
 import { useRouter } from 'next/dist/client/router';
