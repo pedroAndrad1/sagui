@@ -1,3 +1,4 @@
+import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/dist/client/router';
 import { ChangeEvent, useEffect } from 'react';
 import { useState } from 'react';
@@ -5,42 +6,17 @@ import Input from '../components/Input';
 import List from '../components/List';
 import { useUserContext } from '../contexts/UserContext';
 import AppLayout from '../layouts/AppLayout';
+import TutorService from '../services/TutorService';
 import styles from '../styles/home.module.scss';
 
-export default function Home() {
-
-  const router = useRouter();
-  const {logado} = useUserContext();
- 
-  useEffect(() =>{
-    if(!logado) router.push("/login");
-  }, [router, logado]);
-
+export default function Home({tutores}) {
   interface ItemList{
     nome: string;
     link: string;
   }
 
-
-  const professoresData: ItemList[] = [
-    {nome: 'Genérico 1', link: '/alunos-de/Genérico 1'},
-    {nome: 'Genérico 2', link: '/alunos-de/Genérico 2'},
-    {nome: 'professor', link: '/alunos-de/professor'},
-    {nome: 'professor', link: '/alunos-de/professor'},
-    {nome: 'professor', link: '/alunos-de/professor'},
-    {nome: 'professor', link: '/alunos-de/professor'},
-    {nome: 'professor', link: '/alunos-de/professor'},
-    {nome: 'professor', link: '/alunos-de/professor'},
-    {nome: 'professor', link: '/alunos-de/professor'},
-    {nome: 'professor', link: '/alunos-de/professor'},
-    {nome: 'professor', link: '/alunos-de/professor'},
-    {nome: 'professor', link: '/alunos-de/professor'},
-    {nome: 'professor', link: '/alunos-de/professor'},
-    {nome: 'professor', link: '/alunos-de/professor'},
-    {nome: 'professor', link: '/alunos-de/professor'},
-  ]
   const [professorBuscado, setProfessorBuscado] = useState('');
-  const [professores, setProfessores] = useState<ItemList[]>(professoresData);
+  const [professores, setProfessores] = useState<ItemList[]>(tutores);
 
   //Auxiliar do filtro.
   const updateList = (professor: ItemList) => {
@@ -77,4 +53,26 @@ export default function Home() {
       </section>
     </AppLayout>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const tutores = 
+    await TutorService.getTutores()
+    .then( async res =>{
+      const json = await res.json();
+      // mapeando os tutores para o formato que estarao na lista
+      return json._embedded.usuarios.map(tutor =>{
+        return {
+          nome: tutor.nome,
+          link: `/alunos-de/${tutor.email}`
+        }
+      });
+    })
+    .catch( err => console.log(err));
+  
+  return {
+      props: {
+         tutores
+      }
+  }
 }

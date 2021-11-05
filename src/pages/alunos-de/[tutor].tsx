@@ -10,10 +10,6 @@ export default function ListaDeALunosDeTutor() {
 
     const router = useRouter();
     const {logado} = useUserContext();
-   
-    useEffect(() =>{
-      if(!logado) router.push("/login");
-    }, [router, logado]);
     
     const {tutor} = router.query;
 

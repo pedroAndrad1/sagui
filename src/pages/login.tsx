@@ -1,10 +1,12 @@
 import GoogleLogin from 'react-google-login';
-import React, { FormEvent } from 'react';
+import React, { FormEvent, useEffect } from 'react';
 import LoginCadastroRecSenhaLayout from '../layouts/Login-Cadastro-Rec_Senha-Layout';
 import { useRouter } from 'next/dist/client/router';
 import { useUserContext } from '../contexts/UserContext';
+import TutorService from '../services/TutorService';
 
 export default function Login() {
+
 
   const router = useRouter();
   const {login} = useUserContext();
@@ -15,7 +17,6 @@ export default function Login() {
 
   const success = (res) =>{
     login();
-    console.log('logei', res);
     router.push('/');    
   }
   const failure = (res) =>{
