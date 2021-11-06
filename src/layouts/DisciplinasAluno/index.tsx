@@ -2,7 +2,7 @@ import Divider from '../../components/Divider';
 import AlunoDisciplinasTable from './AlunoDisciplinasTable';
 import styles from './DisciplinasAluno.module.scss';
 
-export default function DisciplinasAluno() {
+export default function DisciplinasAluno({disciplinasCursadas}) {
     return (
         <section className={`${styles.wrapper}`}>
             <div className={styles.fluxograma}>
@@ -12,7 +12,7 @@ export default function DisciplinasAluno() {
             <Divider />
             <div className={styles.disciplinas}>
                 <h2>Disciplinas cursadas</h2>
-                <AlunoDisciplinasTable />
+                <AlunoDisciplinasTable disciplinasCursadas={disciplinasCursadas}/>
             </div>
         </section>
     )

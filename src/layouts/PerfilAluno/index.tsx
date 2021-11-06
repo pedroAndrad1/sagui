@@ -1,31 +1,36 @@
 import styles from './PerfilAluno.module.scss';
 
-export default function PerfilAluno(){
+export default function PerfilAluno({alunoAcessado}){
+
     return(
         <section className={styles.wrapper}>
             <ul>
-                <li>
+                {/* <li>
                     <img src="/no_image.gif" alt="Foto de perfil" />
-                </li>
+                </li> */}
                 <li>
                     <p>Matrícula</p>
-                    <span>xxxxxxxxxxx</span>
+                    <span>{alunoAcessado.matricula}</span>
                 </li>
                 <li>
                     <p>Ingresso</p>
-                    <span>xxxx.x</span>
+                    <span>
+                    {
+                        `${alunoAcessado.entradaAnoPeriodo.substring(0,4)}.${alunoAcessado.entradaAnoPeriodo.substring(4,5)}`
+                    }
+                    </span>
                 </li>
                 <li>
                     <p>Semestres cursados</p>
-                    <span>x</span>
+                    <span>Ainda não disponível</span>
                 </li>
                 <li>
                     <p>Coeficiente de rendimento</p>
-                    <span>x</span>
+                    <span>{alunoAcessado.cra}</span>
                 </li>
                 <li>
                     <p>Situação de jubilamento</p>
-                    <span>xxxxxxxx</span>
+                    <span>Ainda não disponível</span>
                 </li>
             </ul>
         </section>

@@ -1,9 +1,7 @@
 import { GetServerSideProps } from "next";
-import { useRouter } from "next/dist/client/router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Input from "../../components/Input";
 import List from "../../components/List";
-import { useUserContext } from "../../contexts/UserContext";
 import AppLayout from "../../layouts/AppLayout";
 import TutorService from "../../services/TutorService";
 import styles from '../../styles/home.module.scss';
@@ -75,7 +73,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         return tutor._links.alunos.href;
       })
       .catch( err => console.log(err));
-      // Fazendo um fetch para todos os alunos desse tutor
+    // Fazendo um fetch para todos os alunos desse tutor
     const alunos_server = 
         await fetch(link_para_alunos)
         .then( async res =>{

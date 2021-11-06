@@ -5,24 +5,9 @@ import Input from "../../../components/Input";
 import RightArrow from '../../../components/Arrows/RightArrow';
 import LeftArrow from "../../../components/Arrows/LeftArrow";
 
-export default function AlunoDisciplinasTable() {
+export default function AlunoDisciplinasTable({disciplinasCursadas}) {
 
-    const data = useMemo(() => [
-        { codigo: 'TINXXXX', nome: 'Nome disciplina', status: 'Cursando' },
-        { codigo: 'TINXXXX', nome: 'Nome disciplina', status: 'Reprovado' },
-        { codigo: 'TINXXXX', nome: 'Nome disciplina', status: 'Aprovado' },
-        { codigo: 'TINXXXX', nome: 'Nome disciplina', status: 'Aprovado' },
-        { codigo: 'TINXXXX', nome: 'Nome disciplina', status: 'Aprovado' },
-        { codigo: 'TINXXXX', nome: 'Nome disciplina', status: 'Aprovado' },
-        { codigo: 'TINXXXX', nome: 'Me ache 1', status: 'Aprovado' },
-        { codigo: 'TINXXXX', nome: 'Me ache 2', status: 'Aprovado' },
-        { codigo: 'TINXXXX', nome: 'Me ache 3', status: 'Aprovado' },
-        { codigo: 'TINXXXX', nome: 'Me ache 4', status: 'Aprovado' },
-        { codigo: 'TINXXXX', nome: 'Nome disciplina', status: 'Aprovado' },
-        { codigo: 'TINXXXX', nome: 'Nome disciplina', status: 'Aprovado' },
-        { codigo: 'TINXXXX', nome: 'Nome disciplina', status: 'Aprovado' },
-        { codigo: 'TINXXXX', nome: 'Nome disciplina', status: 'Aprovado' },
-    ], [])
+    const data = useMemo(() => disciplinasCursadas, [disciplinasCursadas]);
 
     const columns = useMemo(
         () => [
@@ -37,6 +22,10 @@ export default function AlunoDisciplinasTable() {
             {
                 Header: 'Status',
                 accessor: 'status' //chave da info para a coluna
+            },
+            {
+                Header: 'Qtd. de Reprovações',
+                accessor: 'qts_reprovacoes' //chave da info para a coluna
             },
         ]
         , []);
@@ -77,7 +66,7 @@ export default function AlunoDisciplinasTable() {
                 placeholder='Filtre por qualquer uma das colunas'
             />
             {/* Aplicando as props */}
-            <table {...getTableProps()} cellSpacing={0} >
+            <table {...getTableProps()} cellSpacing={0} className={styles.table}>
                 <thead>
                     {/* Fazendo um looping para as linhas de header */}
                     {
