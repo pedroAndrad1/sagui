@@ -13,11 +13,7 @@ import { useUserContext } from "../../contexts/UserContext";
 export default function AlunoProfile() {
 
     const router = useRouter();
-    const {logado} = useUserContext();
    
-    useEffect(() =>{
-      if(!logado) router.push("/login");
-    }, [router, logado]);
     const { aluno } = router.query;
 
     return (
