@@ -60,19 +60,20 @@ export default function Home({ tutores }) {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  // const tutores = await TutorService.getTutores()
-  //   .then(async (res) => {
-  //     const json = await res.json();
-  //     // mapeando os tutores para o formato que estarao na lista
-  //     return json._embedded.usuarios.map((tutor) => {
-  //       return {
-  //         nome: tutor.nome,
-  //         link: `/alunos-de/${tutor.email}`,
-  //       };
-  //     });
-  //   })
-  //   .catch((err) => console.log(err));
-  const tutores = [];
+  const tutores = await TutorService.getTutores()
+    .then(async (res) => {
+      const json = await res.json();
+      // mapeando os tutores para o formato que estarao na lista
+      return json._embedded.usuarios.map((tutor) => {
+        return {
+          nome: tutor.nome,
+          link: `/alunos-de/${tutor.email}`,
+        };
+      });
+    })
+    .catch((err) => console.log(err));
+
+  console.log(tutores);
   return {
     props: {
       tutores,
