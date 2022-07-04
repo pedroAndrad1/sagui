@@ -16,7 +16,7 @@ export default function Login() {
   };
 
   const success = (res) => {
-    if (!validateEmail(res.Qu.Gv)) {
+    if (!validateEmail(res.zv.lw)) {
       toast.error(
         "Só é possível realizar login com emails com domínio uniriotec.com.br ou edu.unirio.br!"
       );
