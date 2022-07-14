@@ -59,34 +59,23 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   let tutor_nome = "";
   // Pegando todos os alunos do tutor.
   // Primeiro acho o tutor pelo email.
-  // Depois faço uma nova request com o link que estara em um de seus atributos
-  // Para pegar todos os alunos
-  const link_para_alunos = await TutorService.getTutores()
+  const alunos_data = await TutorService.getTutores()
     .then(async (res) => {
       const json = await res.json();
-      // Achando o tutor pelo email e retornando o link para os alunos
       const tutor = json._embedded.usuarios.find(
         (tutor) => tutor.email == tutor_email
       );
       tutor_nome = tutor.nome; // Pegando pra mandar tambem
 
-      return tutor._links.alunos.href;
+      return tutor.alunoData._embedded.alunoDataList.map((aluno) => {
+        return {
+          nome: aluno.nome,
+          link: `/aluno/${aluno.matricula}`,
+        };
+      });
     })
     .catch((err) => console.log(err));
-  // Fazendo um fetch para todos os alunos desse tutor
-  const alunos_server = await fetch(link_para_alunos)
-    .then(async (res) => {
-      const json = await res.json();
-      return json._embedded.alunoes;
-    })
-    .catch((err) => console.log(err));
-  // Mapeando os alunos para o formato da lista
-  const alunos_data = alunos_server.map((aluno) => {
-    return {
-      nome: aluno.nome,
-      link: `/aluno/${aluno.matricula}`,
-    };
-  });
+
   return {
     props: {
       tutor_nome,

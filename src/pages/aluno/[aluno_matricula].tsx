@@ -10,9 +10,11 @@ import Link from "next/link";
 import { GetServerSideProps } from "next";
 import AlunoService from "../../services/AlunoService";
 
-export default function AlunoProfile({ alunoAcessado, disciplinasCursadas }) {
-  const router = useRouter();
-
+export default function AlunoProfile({
+  alunoAcessado,
+  disciplinasCursadas,
+  svgString,
+}) {
   return (
     <AppLayout>
       <div className={styles.title}>
@@ -60,30 +62,31 @@ export default function AlunoProfile({ alunoAcessado, disciplinasCursadas }) {
 // Em casos pertinentes.
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { aluno_matricula } = context.params;
-
-  const alunoAcessado = await AlunoService.getAlunos()
-    .then(async (res) => {
-      const json = await res.json();
-      console.log(json._embedded.alunoes);
-      return json._embedded.alunoes.find(
-        (aluno) => aluno.matricula == aluno_matricula
+  let svgString;
+  const alunoAcessado = await AlunoService.getAluno(aluno_matricula).then(
+    async (res) => {
+      // Extraindo o SVG como texto
+      const jsonText = await res.text();
+      svgString = jsonText.slice(
+        jsonText.indexOf("<"),
+        jsonText.lastIndexOf(">") + 1
       );
-    })
-    .catch((err) => console.log(err));
-  // Requisitando as disciplinas cursadas pelo Aluno acessado
-  const disciplinasCursadasRaw0 = await fetch(
-    alunoAcessado._links.disciplinaCursadas.href
-  )
-    .then(async (res) => {
-      const json = await res.json();
+      // Extraindo os dados que nao sao o svg como texto e parseando para Json
+      const jsonPart0 = jsonText.substring(0, jsonText.indexOf("svg") - 1);
+      const jsonPart1 = jsonText.substring(
+        jsonText.indexOf("consolidaRegraData") - 1,
+        jsonText.length
+      );
 
-      return json._embedded.disciplinas;
-    })
-    .catch((err) => console.log(err));
-  // Retirando a info de tracamentos de curso, para evitar que va para a tabela de disciplinas
-  const disciplinasCursadasRaw1 = disciplinasCursadasRaw0.filter(
-    (disciplina) => disciplina.titulo != "TRANCAMENTO GERAL"
+      return JSON.parse(jsonPart0.concat(jsonPart1));
+    }
   );
+
+  // Retirando a info de tracamentos de curso, para evitar que va para a tabela de disciplinas
+  const disciplinasCursadasRaw1 =
+    alunoAcessado.disciplinas._embedded.disciplinaCursadaDataList.filter(
+      (disciplina) => disciplina.titulo != "TRANCAMENTO GERAL"
+    );
   // Mapeando as diciplinas vindas do back para ficar no formato da tabela de disciplinas
   const disciplinasCursadas = disciplinasCursadasRaw1.map((disciplina) => {
     return {
@@ -98,6 +101,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     props: {
       alunoAcessado,
       disciplinasCursadas,
+      svgString,
     },
   };
 };
