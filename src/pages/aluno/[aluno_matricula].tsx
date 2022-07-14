@@ -44,7 +44,10 @@ export default function AlunoProfile({
             <PerfilAluno alunoAcessado={alunoAcessado} />
           </TabPanel>
           <TabPanel>
-            <DisciplinasAluno disciplinasCursadas={disciplinasCursadas} />
+            <DisciplinasAluno
+              disciplinasCursadas={disciplinasCursadas}
+              fluxograma={svgString}
+            />
           </TabPanel>
           <TabPanel>
             <ConfirmacaoMatricula />

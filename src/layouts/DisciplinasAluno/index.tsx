@@ -1,19 +1,33 @@
-import Divider from '../../components/Divider';
-import AlunoDisciplinasTable from './AlunoDisciplinasTable';
-import styles from './DisciplinasAluno.module.scss';
+import { useEffect, useRef } from "react";
+import Divider from "../../components/Divider";
+import AlunoDisciplinasTable from "./AlunoDisciplinasTable";
+import styles from "./DisciplinasAluno.module.scss";
 
-export default function DisciplinasAluno({disciplinasCursadas}) {
-    return (
-        <section className={`${styles.wrapper}`}>
-            <div className={styles.fluxograma}>
-                <img src="/on-work.svg" alt="Em construção" />
-                <span>Futuro Fluxograma aqui</span>
-            </div>
-            <Divider />
-            <div className={styles.disciplinas}>
-                <h2>Disciplinas cursadas</h2>
-                <AlunoDisciplinasTable disciplinasCursadas={disciplinasCursadas}/>
-            </div>
-        </section>
-    )
+export default function DisciplinasAluno({ disciplinasCursadas, fluxograma }) {
+  const domParser = new DOMParser();
+  const svgFluxograma = domParser.parseFromString(
+    fluxograma,
+    "image/svg+xml"
+  ).documentElement;
+  //   console.log(
+  //     domParser.parseFromString(fluxograma, "image/svg+xml").documentElement
+  //   );
+
+  const svg = useRef(null);
+  useEffect(() => {
+    if (svg.current) {
+      svg.current.appendChild(svgFluxograma);
+    }
+  }, [svgFluxograma]);
+
+  return (
+    <section className={`${styles.wrapper}`}>
+      <h2>Fluxograma</h2>
+      <div className={styles.fluxograma} ref={svg}></div>
+      <div className={styles.disciplinas}>
+        <h2>Disciplinas cursadas</h2>
+        <AlunoDisciplinasTable disciplinasCursadas={disciplinasCursadas} />
+      </div>
+    </section>
+  );
 }
