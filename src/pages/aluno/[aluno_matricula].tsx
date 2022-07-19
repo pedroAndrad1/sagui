@@ -21,7 +21,7 @@ export default function AlunoProfile({
         <h1>{alunoAcessado.nome}</h1>
         <a
           target="_blank"
-          href={`/imprimir/${alunoAcessado.nome}`}
+          href={`/imprimir/${alunoAcessado.matricula}`}
           rel="noopener noreferrer"
         >
           <button>
@@ -60,9 +60,7 @@ export default function AlunoProfile({
     </AppLayout>
   );
 }
-// Vou pegar todos os alunos e achar o aluno acessado pela matricula vinda na URL.
-// Depois, vou separar as informacoes necessarias para cada tab em objetos diferentes.
-// Em casos pertinentes.
+
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { aluno_matricula } = context.params;
   let svgString;

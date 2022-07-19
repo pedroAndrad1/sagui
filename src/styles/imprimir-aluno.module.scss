@@ -1,51 +1,55 @@
 .wrapper {
-    width: 100%;
-    padding: 3rem;
+  width: 100%;
+  padding: 3rem;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  //Tem isso tudo para não cortar o fluxograma na impressão
+  // section + section {
+  //     margin-top: 18rem;
+  // }
+
+  section {
+    box-shadow: none;
+  }
+
+  .disciplinas_wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 
-    //Tem isso tudo para não cortar o fluxograma na impressão
-    // section + section {
-    //     margin-top: 18rem;
-    // }
+    padding: 2rem;
 
-    section{
-        box-shadow: none;
+    .fluxograma {
+      margin-top: 20vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      svg {
+        max-width: 100%;
+      }
     }
 
-    .disciplinas_wrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+    .disciplinas {
+      width: 100%;
+      margin-top: 1rem;
 
-        padding: 2rem;
+      h2 {
+        margin: 1rem 0;
+      }
 
-        .fluxograma {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+      table {
+        width: 100%;
 
-            img {
-                height: 400px;
-                width: 400px;
-            }
+        td {
+          border: none;
         }
-
-        .disciplinas {
-            width: 100%;
-            margin-top: 1rem;
-
-            h2 {
-                margin: 1rem 0;
-            }
-
-            table {
-                width: 100%;
-            }
-        }
+      }
     }
+  }
 }

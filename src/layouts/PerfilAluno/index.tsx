@@ -2,7 +2,6 @@ import Divider from "../../components/Divider";
 import styles from "./PerfilAluno.module.scss";
 
 export default function PerfilAluno({ alunoAcessado }) {
-  console.log(alunoAcessado);
   return (
     <section className={styles.wrapper}>
       <ul>

@@ -9,9 +9,6 @@ export default function DisciplinasAluno({ disciplinasCursadas, fluxograma }) {
     fluxograma,
     "image/svg+xml"
   ).documentElement;
-  //   console.log(
-  //     domParser.parseFromString(fluxograma, "image/svg+xml").documentElement
-  //   );
 
   const svg = useRef(null);
   useEffect(() => {
