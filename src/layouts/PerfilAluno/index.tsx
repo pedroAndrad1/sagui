@@ -2,6 +2,7 @@ import Divider from "../../components/Divider";
 import styles from "./PerfilAluno.module.scss";
 
 export default function PerfilAluno({ alunoAcessado }) {
+  console.log(alunoAcessado);
   return (
     <section className={styles.wrapper}>
       <ul>
@@ -25,12 +26,12 @@ export default function PerfilAluno({ alunoAcessado }) {
         <Divider></Divider>
         <li>
           <p>Semestres cursados</p>
-          <span>Ainda não disponível</span>
+          <span>{alunoAcessado.consolidaRegraData.qtdPeriodosChce}</span>
         </li>
         <Divider></Divider>
         <li>
           <p>Coeficiente de rendimento</p>
-          <span>{alunoAcessado.cra}</span>
+          <span>{alunoAcessado.consolidaRegraData.cra.toFixed(2)}</span>
         </li>
         <Divider></Divider>
         <li>
