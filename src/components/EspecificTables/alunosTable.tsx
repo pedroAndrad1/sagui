@@ -1,41 +1,12 @@
-import Input from "../../components/Input";
+import Input from "../Input";
 import React, { useMemo } from "react";
 import { useTable, useGlobalFilter, usePagination } from "react-table";
-import RightArrow from "../../components/Arrows/RightArrow";
-import LeftArrow from "../../components/Arrows/LeftArrow";
+import RightArrow from "../Arrows/RightArrow";
+import LeftArrow from "../Arrows/LeftArrow";
 import Link from "next/link";
 
-export default function AlunosTable() {
-  const data = useMemo(
-    () => [
-      {
-        matricula: "XXXXXXXXXXX",
-        nome: "Nome do aluno",
-        detalhes: "link",
-      },
-      {
-        matricula: "XXXXXXXXXXX",
-        nome: "Roberto Silva de Sousa",
-        detalhes: "link",
-      },
-      {
-        matricula: "XXXXXXXXXXX",
-        nome: "Jéssica Carvalho dos Santos",
-        detalhes: "link",
-      },
-      {
-        matricula: "XXXXXXXXXXX",
-        nome: "Nome do aluno",
-        detalhes: "link",
-      },
-      {
-        matricula: "XXXXXXXXXXX",
-        nome: "Nome do aluno",
-        detalhes: "link",
-      },
-    ],
-    []
-  );
+export default function AlunosTable({ alunos }) {
+  const data = useMemo(() => alunos, [alunos]);
 
   const columns = useMemo(
     () => [
@@ -128,10 +99,11 @@ export default function AlunosTable() {
                     //fazendo um looping nas row cells
                     row.cells.map((cell, i) => {
                       if (cell.column.id === "detalhes") {
+                        console.log(cell);
                         return (
                           <td key={`${i}_body_cell`} {...cell.getCellProps()}>
                             {/* Renderizando a cell */}
-                            <Link href={`/aluno/${cell.row.values.nome}`}>
+                            <Link href={`${cell.row.original.link}`}>
                               <i className="bi bi-search"></i>
                             </Link>
                           </td>
