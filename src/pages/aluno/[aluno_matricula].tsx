@@ -3,12 +3,13 @@ import styles from "../../styles/aluno.module.scss";
 import PerfilAluno from "../../layouts/PerfilAluno";
 import DisciplinasAluno from "../../layouts/DisciplinasAluno";
 import { useRouter } from "next/dist/client/router";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import ConfirmacaoMatricula from "../../layouts/ConfirmacaoMatricula";
 import PlanosDeIntegralizacao from "../../layouts/PlanosDeIntegralizacao";
 import Link from "next/link";
 import { GetServerSideProps } from "next";
 import AlunoService from "../../services/AlunoService";
+import Tabs from "../../components/Tabs";
+import TabPanel from "../../components/Tabs/TabPanel";
 
 export default function AlunoProfile({
   alunoAcessado,
@@ -30,33 +31,23 @@ export default function AlunoProfile({
           </button>
         </a>
       </div>
-      <div className={styles.wrapper}>
-        <Tabs>
-          <nav>
-            <TabList>
-              <Tab>Resumo</Tab>
-              <Tab>Disciplinas</Tab>
-              <Tab>Confirmação de Matrícula</Tab>
-              <Tab>Planos de Integralização</Tab>
-            </TabList>
-          </nav>
-          <TabPanel>
-            <PerfilAluno alunoAcessado={alunoAcessado} />
-          </TabPanel>
-          <TabPanel>
-            <DisciplinasAluno
-              disciplinasCursadas={disciplinasCursadas}
-              fluxograma={svgString}
-            />
-          </TabPanel>
-          <TabPanel>
-            <ConfirmacaoMatricula />
-          </TabPanel>
-          <TabPanel>
-            <PlanosDeIntegralizacao />
-          </TabPanel>
-        </Tabs>
-      </div>
+      <Tabs>
+        <TabPanel name="Perfil" key={1}>
+          <PerfilAluno alunoAcessado={alunoAcessado} />
+        </TabPanel>
+        <TabPanel name="disciplinas" key={2}>
+          <DisciplinasAluno
+            disciplinasCursadas={disciplinasCursadas}
+            fluxograma={svgString}
+          />
+        </TabPanel>
+        <TabPanel name="Confirmação de matrícula" key={3}>
+          <ConfirmacaoMatricula />
+        </TabPanel>
+        <TabPanel name="Planos de integralização" key={4}>
+          <PlanosDeIntegralizacao />
+        </TabPanel>
+      </Tabs>
     </AppLayout>
   );
 }
