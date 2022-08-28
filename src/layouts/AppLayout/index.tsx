@@ -25,18 +25,19 @@ export default function AppLayout({ children }) {
             {
                 modalOpen &&
                 <Modal>
-                    <div className =
-                    {
-                    `
+                    <div className=
+                        {
+                            `
                         ${styles.upload_de_historicos_modal} 
                         fadeIn
+                        fadeOut
                     `
-                    }
+                        }
                     >
                         <header>
                             <h1>Carga de histórico</h1>
                         </header>
-                        <Divider/>
+                        <Divider />
                         <main>
                             Por favor, certifique-se que o conteúdo do pdf está no formato correto.
                         </main>
@@ -49,7 +50,7 @@ export default function AppLayout({ children }) {
                 </Modal>
             }
             <div className={styles.wrapper}>
-                <Navbar openCargaHistoricosModal={openModal}/>
+                <Navbar openCargaHistoricosModal={openModal} />
                 <main className="animeLeft">
                     <Container>
                         {children}

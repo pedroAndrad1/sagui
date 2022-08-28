@@ -1,196 +1,33 @@
-import { useEffect, useMemo } from 'react';
+
 import AppLayout from '../layouts/AppLayout';
-import RightArrow from '../components/Arrows/RightArrow';
-import LeftArrow from "../components/Arrows/LeftArrow";
-import Input from "../components/Input";
+
 import styles from '../styles/admin.module.scss';
-import { useTable, useGlobalFilter, usePagination } from 'react-table';
 import { useRouter } from 'next/dist/client/router';
 import { useUserContext } from '../contexts/UserContext';
+import Tabs from '../components/Tabs';
+import TabPanel from '../components/Tabs/TabPanel';
+import AdminProfessores from '../layouts/AdminLayouts/AdminProfessores';
+import AdminTutorias from '../layouts/AdminLayouts/AdminTutorias';
 
 export default function Admin() {
 
     const router = useRouter();
-    const {logado} = useUserContext();
-   
-    useEffect(() =>{
-      if(!logado) router.push("/login");
-    }, [router, logado]);
-
-    const data = useMemo(() => [
-        {
-            email: 'XXXXXXXXXXX', nome: 'Nome do aluno',
-            permissao: 'Admin', id: 'id'
-        },
-        {
-            email: 'XXXXXXXXXXX', nome: 'Nome do aluno',
-            permissao: 'Admin', id: 'id'
-        },
-        {
-            email: 'XXXXXXXXXXX', nome: 'Nome do aluno',
-            permissao: 'Admin', id: 'id'
-        },
-        {
-            email: 'XXXXXXXXXXX', nome: 'Nome do aluno',
-            permissao: 'Admin', id: 'id'
-        },
-    ], [])
-
-    const columns = useMemo(
-        () => [
-            {
-                Header: 'Mátricula',
-                accessor: 'email' //chave da info para a coluna
-            },
-            {
-                Header: 'Nome',
-                accessor: 'nome' //chave da info para a coluna
-            },
-            {
-                Header: 'Permissão',
-                accessor: 'permissao' //chave da info para a coluna
-            },
-            {
-                Header: 'Ações',
-                accessor: 'id' //chave da info para a coluna
-            },
-        ]
-        , []);
-
-    const {
-        getTableProps,
-        getTableBodyProps,
-        headerGroups,
-        prepareRow,
-        state,
-        // @ts-ignore
-        page,
-        // @ts-ignore
-        pageOptions,
-        // @ts-ignore
-        nextPage,
-        // @ts-ignore
-        canNextPage,
-        // @ts-ignore
-        canPreviousPage,
-        // @ts-ignore
-        previousPage,
-        // @ts-ignore
-        setGlobalFilter,
-        // @ts-ignore
-        setPageSize
-    } =
-        // @ts-ignore
-        useTable({ columns, data }, useGlobalFilter, usePagination)
-
-    // @ts-ignore
-    const { globalFilter, pageIndex, pageSize } = state;
-
-
+    const { logado } = useUserContext();
 
     return (
         <AppLayout>
             <h1>Ferramentas de administrador</h1>
-            <section className={styles.wrapper}>
-                <div>
-                    <Input
-                        name='filtro' value={globalFilter}
-                        onChange={e => setGlobalFilter(e.target.value)}
-                        placeholder='Filtre por qualquer uma das colunas'
-                    />
-                    <div>
-                        <button><i className="bi bi-plus-lg"></i>Período</button>
-                        <button><i className="bi bi-plus-lg"></i>Usuário</button>
-                    </div>
-                </div>
-                <table {...getTableProps()} cellSpacing={0} >
-                    <thead>
-                        {/* Fazendo um looping para as linhas de header */}
-                        {
-                            headerGroups.map((headerGroup, i) => (
-                                // Aplicando as props de header
-                                <tr {...headerGroup.getHeaderGroupProps()} key={`${i}_header_row`} >
-                                    {
-                                        headerGroup.headers.map((column, i) => (
-                                            //Aplicando as props de header cell
-                                            <th
-                                                {...column.getHeaderProps()}
-                                                key={`${i}_header_cell`}
-                                            >
-                                                {/* Renderizando a cell */}
-                                                {column.render('Header')}
-                                            </th>
-                                        ))
-                                    }
-                                </tr>
-                            ))}
-                    </thead>
-                    {/* Aplicando as props de body */}
-                    <tbody {...getTableBodyProps()}>
-                        {
-                            //Fazendo um looping nas rows
-                            page.map((row, i) => {
-                                //Preparando a row para display
-                                prepareRow(row)
+            <Tabs>
+                <TabPanel name='Professores'>
+                    <AdminProfessores></AdminProfessores>
+                </TabPanel>
+                <TabPanel name='Alunos'>
 
-                                return (
-                                    //Aplicando as props de row
-                                    <tr {...row.getRowProps()} key={`${i}_body_row`} className='animeLeft'>
-                                        {
-                                            //fazendo um looping nas row cells
-                                            row.cells.map((cell, i) => {
-                                                if (cell.column.id === 'id') {
-                                                    return (
-                                                        <td
-                                                            key={`${i}_body_cell`}
-                                                            {...cell.getCellProps()}
-                                                            className={styles.reprovado}
-                                                        >
-                                                            {/* Renderizando a cell */}
-                                                            <div className={styles.operations}>
-                                                                <i className="bi bi-pencil-square"></i>
-                                                                <i className="bi bi-trash-fill"></i>
-                                                            </div>
-                                                        </td>
-                                                    )
-                                                }
-                                                else {
-                                                    return (
-                                                        //Aplicando as props de cell
-                                                        <td
-                                                            key={`${i}_body_cell`}
-                                                            {...cell.getCellProps()}
-                                                        >
-                                                            {/* Renderizando a cell */}
-                                                            {cell.render('Cell')}
-                                                        </td>
-                                                    )
-                                                }
-                                            })
-                                        }
-                                    </tr>
-                                )
-                            })
-                        }
-                    </tbody>
-                </table>
-                <div className='pagination'>
-                    <select value={pageSize} onChange={e => setPageSize(Number(e.target.value))} >
-                        {
-                            [5, 10, 15].map(pageSize =>
-                                <option key={pageSize} value={pageSize}>
-                                    {`Mostar ${pageSize}`}
-                                </option>
-                            )
-                        }
-                    </select>
-                    <span>
-                        {`Página ${pageIndex + 1} de ${pageOptions.length}`}
-                    </span>
-                    <LeftArrow onClick={() => previousPage()} disabled={!canPreviousPage} />
-                    <RightArrow onClick={() => nextPage()} disabled={!canNextPage} />
-                </div>
-            </section>
+                </TabPanel>
+                <TabPanel name='Tutorias'>
+                    <AdminTutorias></AdminTutorias>
+                </TabPanel>
+            </Tabs>
         </AppLayout>
     )
 }
