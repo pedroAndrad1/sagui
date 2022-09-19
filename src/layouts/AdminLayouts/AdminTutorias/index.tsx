@@ -4,6 +4,7 @@ import LeftArrow from '../../../components/Arrows/LeftArrow'
 import RightArrow from '../../../components/Arrows/RightArrow'
 import Input from '../../../components/Input';
 import styles from './AdminTutorias.module.scss';
+import Link from 'next/link';
 
 const AdminTutorias = () => {
 
@@ -68,10 +69,12 @@ const AdminTutorias = () => {
                     onChange={e => setGlobalFilter(e.target.value)}
                     placeholder='Filtre por qualquer uma das colunas'
                 />
-                <div>
-                    <button><i className="bi bi-plus-lg"></i>Período</button>
-                    <button><i className="bi bi-plus-lg"></i>Usuário</button>
-                </div>
+                <Link href="admin/professores/salvar">
+                    <button>
+                        Adicionar
+                        <i className="bi bi-plus-lg"></i>
+                    </button>
+                </Link>
             </div>
             <table {...getTableProps()} cellSpacing={0} >
                 <thead>

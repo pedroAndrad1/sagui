@@ -88,7 +88,6 @@ const ManterProfessor = ({ type }: ManterProfessorProps) => {
                         onChange={(e) => setPeriodos(e)}
                         isSearchable={true}
                         isClearable={true}
-                        autoFocus={true}
                         placeholder="Escolha um período"
                         noOptionsMessage={(parametroPedidoSemUso) =>
                             "Não há períodos cadatrados. Cadastre um período antes, por favor."
