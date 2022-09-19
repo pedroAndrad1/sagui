@@ -105,7 +105,7 @@ export default function Jubilamento() {
       <h1>Alunos em situação de jubilamento</h1>
       <section className={styles.wrapper}>
         <Input
-          name="filtro"
+          name="Filtro"
           value={globalFilter}
           onChange={(e) => setGlobalFilter(e.target.value)}
           placeholder="Filtre por qualquer uma das colunas"

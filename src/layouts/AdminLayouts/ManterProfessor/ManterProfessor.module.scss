@@ -1,0 +1,22 @@
+.wrapper {
+  width: 100%;
+}
+
+.select {
+  width: 70%;
+  margin-bottom: 1rem;
+}
+
+.button {
+  background-color: var(--primary);
+  width: 30%;
+}
+
+@media (max-width: 900px) {
+  .select {
+    width: 100%;
+  }
+  .button {
+    width: 100%;
+  }
+}

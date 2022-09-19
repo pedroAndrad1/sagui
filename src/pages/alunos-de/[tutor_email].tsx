@@ -34,7 +34,7 @@ export default function ListaDeALunosDeTutor({ tutor_nome, alunos_data }) {
       <h1>Alunos de {tutor_nome}</h1>
       <div className={styles.buscar}>
         <Input
-          name="buscar"
+          name="Buscar"
           placeholder="Digite o nome de um aluno"
           type="text"
           value={alunoBuscado}

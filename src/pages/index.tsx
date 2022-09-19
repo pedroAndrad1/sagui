@@ -39,7 +39,7 @@ export default function Home({ tutores }) {
       <h1>Professores Tutores</h1>
       <div className={styles.buscar}>
         <Input
-          name="buscar"
+          name="Buscar"
           placeholder="Digite o nome de um tutor"
           type="text"
           value={professorBuscado}

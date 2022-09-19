@@ -4,6 +4,7 @@ import LeftArrow from '../../../components/Arrows/LeftArrow'
 import RightArrow from '../../../components/Arrows/RightArrow'
 import Input from '../../../components/Input';
 import styles from './AdminProfessores.module.scss';
+import Link from 'next/link';
 
 const AdminProfessores = () => {
 
@@ -76,14 +77,16 @@ const AdminProfessores = () => {
         <section className={styles.wrapper}>
             <div>
                 <Input
-                    name='filtro' value={globalFilter}
+                    name='Filtro' value={globalFilter}
                     onChange={e => setGlobalFilter(e.target.value)}
                     placeholder='Filtre por qualquer uma das colunas'
                 />
-                <div>
-                    <button><i className="bi bi-plus-lg"></i>Período</button>
-                    <button><i className="bi bi-plus-lg"></i>Usuário</button>
-                </div>
+                <Link href="admin/professores/salvar">
+                    <button>
+                        Adicionar
+                        <i className="bi bi-plus-lg"></i>
+                    </button>
+                </Link>
             </div>
             <table {...getTableProps()} cellSpacing={0} >
                 <thead>
@@ -129,7 +132,9 @@ const AdminProfessores = () => {
                                                     >
                                                         {/* Renderizando a cell */}
                                                         <div className={styles.operations}>
-                                                            <i className="bi bi-pencil-square"></i>
+                                                            <Link href={`admin/professores/editar/${cell.column.id}`}>
+                                                                <i className="bi bi-pencil-square"></i>
+                                                            </Link>
                                                             <i className="bi bi-trash-fill"></i>
                                                         </div>
                                                     </td>

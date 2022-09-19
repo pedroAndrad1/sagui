@@ -64,7 +64,7 @@ const AdminTutorias = () => {
         <section className={styles.wrapper}>
             <div>
                 <Input
-                    name='filtro' value={globalFilter}
+                    name='Filtro' value={globalFilter}
                     onChange={e => setGlobalFilter(e.target.value)}
                     placeholder='Filtre por qualquer uma das colunas'
                 />

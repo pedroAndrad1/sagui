@@ -5,7 +5,7 @@
   //Filtro e buttons
   > div:first-child {
     display: grid;
-    grid-template-columns: 0.6fr 0.4fr;
+    grid-template-columns: 0.8fr 0.2fr;
     align-items: center;
 
     //Div do input. Fiz algumas mudanças nela para harmonizar com os botões
@@ -17,24 +17,8 @@
       }
     }
 
-    //Div dos buttons
-    div:last-child {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-
-      button {
-        width: 35%;
-        height: 30px;
-      }
-
-      button:first-child {
-        background: var(--primary);
-      }
-      button:last-child {
-        background: var(--secondary);
-      }
+    button{
+      background-color: var(--primary);
     }
   }
 
