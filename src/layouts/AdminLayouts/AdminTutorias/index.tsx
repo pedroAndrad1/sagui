@@ -69,7 +69,7 @@ const AdminTutorias = () => {
                     onChange={e => setGlobalFilter(e.target.value)}
                     placeholder='Filtre por qualquer uma das colunas'
                 />
-                <Link href="admin/professores/salvar">
+                <Link href="admin/tutorias/salvar">
                     <button>
                         Adicionar
                         <i className="bi bi-plus-lg"></i>
@@ -120,7 +120,7 @@ const AdminTutorias = () => {
                                                     >
                                                         {/* Renderizando a cell */}
                                                         <div className={styles.operations}>
-                                                            <i className="bi bi-pencil-square"></i>
+                                                            <Link href={`admin/tutorias/editar/${cell.column.id}`}><i className="bi bi-pencil-square"></i></Link>
                                                             <i className="bi bi-trash-fill"></i>
                                                         </div>
                                                     </td>

@@ -1,0 +1,28 @@
+.wrapper {
+  width: 100%;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  
+    width: 70%;
+    margin-bottom: 1rem;
+  }
+}
+
+.button {
+  background-color: var(--primary);
+  width: 30%;
+}
+
+@media (max-width: 900px) {
+ .wrapper{
+  form {
+    width: 100%;
+  }
+ }
+  .button {
+    width: 100%;
+  }
+}
