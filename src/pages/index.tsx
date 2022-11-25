@@ -6,6 +6,7 @@ import Input from "../components/Input";
 import List from "../components/List";
 import { useUserContext } from "../contexts/UserContext";
 import AppLayout from "../layouts/AppLayout";
+import AlunoService from "../services/AlunoService";
 import TutorService from "../services/TutorService";
 import styles from "../styles/home.module.scss";
 
@@ -73,7 +74,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     })
     .catch((err) => console.log(err));
 
-  console.log(tutores);
   return {
     props: {
       tutores,

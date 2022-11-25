@@ -1,9 +1,12 @@
-import React, { useMemo, useState } from "react";
+import React, { ChangeEvent, useMemo, useState } from "react";
 import { useTable, useGlobalFilter, usePagination } from 'react-table';
 import Input from "../../components/Input";
 import RightArrow from '../../components/Arrows/RightArrow';
 import LeftArrow from "../../components/Arrows/LeftArrow";
 import styles from './ConfirmacaoMatricula.module.scss';
+import AlunoService from "../../services/AlunoService";
+import { useRouter } from "next/dist/client/router";
+import { toast } from "react-toastify";
 
 export default function ConfirmacaoMatricula() {
     // Ignore o erro no typeScript, essa lib react-bable tem problemas com ele
@@ -94,12 +97,30 @@ export default function ConfirmacaoMatricula() {
 
     // @ts-ignore
     const { globalFilter, pageIndex, pageSize } = state;
+    const router = useRouter();
+
+    const uploadConfirmacao = (e) => {
+        AlunoService.uploadConfirmacao(router.query.aluno_matricula, e.target.files[0])
+        .then(res =>{
+            console.log(res);
+            toast.success('Arquivo enviado com sucesso!')
+        })
+        .catch(err =>{
+            console.log(err);
+            toast.error('Erro de comunicação com o servidor, tente novamente mais tarde!')
+        })
+        .finally(() => (e.target.value = null))
+    }
 
     return (
         <section className={styles.wrapper} >
-            <Input name='filtro' value={globalFilter} onChange={e => setGlobalFilter(e.target.value)}
-                placeholder='Filtre por qualquer uma das colunas'
-            />
+            <div className={`${styles.filtro_upload}`}>
+                <Input name='filtro' value={globalFilter} onChange={e => setGlobalFilter(e.target.value)}
+                    placeholder='Filtre por qualquer uma das colunas'
+                />
+                <label htmlFor="confirmacao" className={`button-like ${styles.upload_button}`}>Nova confirmação</label>
+                <input name="confirmacao" id="confirmacao" type="file" accept="text/plain" onChange={uploadConfirmacao}/>
+            </div>
             {/* Aplicando as props */}
             <table {...getTableProps()} cellSpacing={0} >
                 <thead>

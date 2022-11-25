@@ -6,18 +6,21 @@ import "../styles/globals.scss";
 import { UserContextProvider } from "../contexts/UserContext";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { SessionProvider } from "next-auth/react"
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
-    <UserContextProvider>
-      <ToastContainer
-        closeButton={false}
-        hideProgressBar={false}
-        autoClose={5000}
-        position="top-right"
-      ></ToastContainer>
-      <Component {...pageProps} />
-    </UserContextProvider>
+    <SessionProvider session={session}>
+      <UserContextProvider>
+        <ToastContainer
+          closeButton={false}
+          hideProgressBar={false}
+          autoClose={5000}
+          position="top-right"
+        ></ToastContainer>
+        <Component {...pageProps} />
+      </UserContextProvider>
+    </SessionProvider>
   );
 }
 

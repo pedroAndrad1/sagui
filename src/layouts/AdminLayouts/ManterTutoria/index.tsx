@@ -31,13 +31,15 @@ const TUTORES_DATA = [
 
 
 interface ManterTutoriaProps {
-    type: 'EDITAR' | 'SALVAR'
+    type: 'EDITAR' | 'SALVAR';
+    tutoresData?: any;
 }
 
-const ManterTutoria = ({ type }: ManterTutoriaProps) => {
+const ManterTutoria = ({ type, tutoresData }: ManterTutoriaProps) => {
 
     const [periodos, setPeriodos] = useState<any>([]);
     const [tutor, setTutor] = useState<any>();
+    
 
     const onSubmit = (e: FormEvent) => {
         e.preventDefault();

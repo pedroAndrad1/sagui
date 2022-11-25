@@ -3,3 +3,24 @@
   border-radius: 8px;
   min-height: 100vh;
 }
+
+.filtro_upload{
+
+  display: grid;
+  grid-template-columns: 1fr 0.3fr;
+
+  div:first-child {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+  }
+
+  .upload_button {
+      background: var(--primary);
+  }
+
+  input[type="file"] {
+    position: absolute;
+    left: -9999px;
+  }
+}

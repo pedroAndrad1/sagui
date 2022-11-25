@@ -6,6 +6,7 @@ import { useUserContext } from "../contexts/UserContext";
 import TutorService from "../services/TutorService";
 import { validateEmail } from "../customHooks/useValidateEmailDomain";
 import { toast } from "react-toastify";
+import { signIn } from "next-auth/react"
 
 export default function Login() {
   const router = useRouter();
@@ -50,6 +51,8 @@ export default function Login() {
               </button>
             )}
           />
+          <button onClick={() => signIn(undefined, { callbackUrl: '/'})}>Keycloak</button>
+          <button onClick={() => signIn('google', { callbackUrl: '/'} )}>Google</button>
         </form>
         {/* <span className='mt-4'>Esqueceu a senha? <Link href="/recuperar-senha">Clique aqui.</Link></span>
         <Divider />
