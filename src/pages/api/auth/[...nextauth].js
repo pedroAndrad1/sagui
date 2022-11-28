@@ -9,24 +9,16 @@ export const authOptions = {
         clientId:'SaguiTeste',
         clientSecret: '2IeNshUD6z5lzkm2MjAr0BbXfyziuARz',
         issuer: 'http://localhost:8080/realms/myrealm',
-      }),
-    GoogleProvider({
-        clientId: '332505955238-s8of22iii1hn0ibmvjdcpfvl5pl6qq8d.apps.googleusercontent.com',
-        clientSecret: 'XvkT4t3F4HuWd_hkm8CQ9ZhN',
-        jwt:{
-            encryption: true
-        },
-        callbacks: {
-            async jwt({ token, account }) {
-              console.log(account);
-            //   if (account.provider === "google") {
-            //     console.log(profile.email);
-            //     return profile.email_verified && profile.email.endsWith("@uniriotec.br")
-            //   }
-            //   return true // Do different verification for other providers that don't have `email_verified`
-            },
-          },
-    })
+      })
   ],
+  // callbacks: {
+  //   async signIn({ user, account, profile, email, credentials }) {
+  //     console.log('Oi')
+  //     if (account.provider === "google" && profile.email_verified && profile.email.endsWith("@uniriotec.br")) {
+  //       return true
+  //     }
+  //     return '/login/email-invalido'
+  //   }
+  // }
 }
 export default NextAuth(authOptions)
