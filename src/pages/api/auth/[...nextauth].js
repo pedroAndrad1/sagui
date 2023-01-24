@@ -17,6 +17,7 @@ export const authOptions = {
     }),
   ],
   debug: true,
+  secret: '71317b887572b658c8bf68d47ea5c22b'
   // callbacks: {
   //   async signIn({ user, account, profile, email, credentials }) {
   //     console.log('Oi')
